@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"><head><meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1,viewport-fit=cover" name="viewport"/>
+<title>THAILAND · 2026 · 12 DAYS</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f4f1ea;color:#25221e;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC",sans-serif}
+.wrap{max-width:720px;margin:auto;padding:18px 16px 56px}.hero{background:#25221e;color:#fff;border-radius:28px;padding:24px 22px;margin-bottom:14px;box-shadow:0 12px 30px #0001}
+.kicker{font-size:12px;letter-spacing:.14em;opacity:.68;text-transform:uppercase}h1{font-size:30px;line-height:1.18;margin:10px 0 14px}.meta{display:flex;gap:8px;flex-wrap:wrap}.pill{padding:7px 10px;border-radius:999px;background:#ffffff16;font-size:12px}
+.nav{position:sticky;top:0;z-index:5;background:#f4f1eaf2;backdrop-filter:blur(12px);padding:8px 0 10px;display:flex;gap:8px;overflow:auto}.nav a{white-space:nowrap;text-decoration:none;color:#25221e;background:#fff;border:1px solid #0000000c;padding:8px 11px;border-radius:999px;font-size:12px}
+section{background:#fff;border-radius:22px;padding:18px;margin:12px 0;box-shadow:0 5px 18px #00000009}h2{font-size:19px;margin:0 0 12px}.sub{color:#766f66;font-size:12px;margin-top:-5px;margin-bottom:14px}
+
+.countdown{display:none}.cdtitle{font-size:12px;opacity:.72}.cdclock{font-size:26px;font-weight:800;letter-spacing:.02em;margin:5px 0 3px;font-variant-numeric:tabular-nums}.cdtarget{font-size:11px;opacity:.68;line-height:1.45}
+.flight-scroller{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:2px 2px 10px;margin:0 -2px;-webkit-overflow-scrolling:touch;scrollbar-width:none}.flight-scroller::-webkit-scrollbar{display:none}.flight-card{position:relative;flex:0 0 calc(100% - 18px);scroll-snap-align:start;background:#102a31;color:#f7fbf9;border-radius:26px;padding:18px 18px 16px;min-height:282px;overflow:hidden;box-shadow:0 16px 28px #102a311c}.flight-card:after{content:"";position:absolute;right:-60px;top:-70px;width:180px;height:180px;border-radius:50%;background:#ffffff08}.flight-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;position:relative;z-index:1}.flight-kicker{font-size:11px;letter-spacing:.14em;color:#b8cfca;text-transform:uppercase}.flight-airline{font-size:11px;color:#91aaa5;margin-top:5px}.flight-date{font-size:11px;color:#91aaa5;white-space:nowrap}.flight-route{display:grid;grid-template-columns:1fr 66px 1fr;align-items:center;gap:8px;margin:24px 0 14px;position:relative;z-index:1}.airport{text-align:left}.airport.right{text-align:right}.airport-code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:31px;font-weight:800;letter-spacing:.02em;line-height:1}.airport-city{font-size:11px;color:#9fb5b1;margin-top:7px}.route-middle{position:relative;height:42px;display:flex;align-items:center;justify-content:center}.route-line-mini{position:absolute;left:4px;right:4px;top:20px;border-top:1px solid #78918d55}.route-dot{width:9px;height:9px;border:2px solid #dce9e6;border-radius:50%;background:#102a31;position:relative;z-index:1}.route-arrow{position:absolute;top:11px;font-size:12px;color:#dce9e6;background:#102a31;padding:0 5px}.flight-times{display:grid;grid-template-columns:1fr auto 1fr;gap:8px;align-items:end;position:relative;z-index:1}.flight-time{font-size:17px;font-weight:800}.flight-time small{display:block;font-size:10px;color:#8fa7a2;font-weight:500;margin-top:3px}.flight-time.right{text-align:right}.flight-duration{text-align:center;font-size:10px;color:#8fa7a2}.flight-bottom{margin-top:17px;padding-top:13px;border-top:1px solid #ffffff18;display:flex;align-items:flex-end;justify-content:space-between;gap:12px;position:relative;z-index:1}.flight-count-label{font-size:10px;color:#8fa7a2}.flight-count{font-size:25px;font-weight:800;letter-spacing:.02em;font-variant-numeric:tabular-nums;margin-top:2px}.flight-no{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px;color:#dce9e6;text-align:right}.flight-note{font-size:10px;color:#8fa7a2;text-align:right;margin-top:4px}.flight-dots{display:flex;justify-content:center;gap:6px;margin-top:1px}.flight-dot{width:6px;height:6px;border-radius:50%;background:#c5cec9}.flight-dot.active{width:22px;border-radius:99px;background:#397f89}.flight-helper{font-size:11px;color:#8a8278;margin:8px 2px 0}.flight-helper b{color:#25221e}
+.day{border-top:1px solid #eee6dc;padding:14px 0}.day:first-child{border-top:0}.dayhead{display:flex;gap:10px;align-items:baseline}.dayhead span{font-size:12px;color:#9b7452;font-weight:700;min-width:42px}.dayhead b{font-size:15px}ul{margin:8px 0 0 52px;padding-left:16px}li{margin:6px 0;font-size:13px;line-height:1.45}
+.map{position:relative;height:270px;border-radius:18px;overflow:hidden;background:linear-gradient(145deg,#e7e0d5,#d7d0c5)}.sea{position:absolute;inset:auto -10% 0 50%;height:48%;background:#c9d9d8;transform:rotate(-12deg);border-radius:50%}.route{position:absolute;left:18%;right:15%;top:48%;height:3px;background:#7b6b5b;transform:rotate(-9deg)}.dot{position:absolute;width:11px;height:11px;background:#25221e;border:3px solid #fff;border-radius:50%;box-shadow:0 2px 8px #0003}.label{position:absolute;background:#fffdf9;padding:5px 7px;border-radius:8px;font-size:11px;box-shadow:0 2px 8px #0002}.cnx{left:17%;top:44%}.bkk{left:65%;top:51%}.pty{left:75%;top:66%}.lcnx{left:13%;top:34%}.lbkk{left:61%;top:41%}.lpty{left:71%;top:72%}
+.daymap{margin:12px 0 2px;border:1px solid #eee6dc;border-radius:16px;padding:10px;background:#fbfaf7}.daymap svg{width:100%;height:220px;display:block}.maplegend{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}.maptag{font-size:10px;padding:5px 7px;border-radius:999px;background:#fff;border:1px solid #e8e0d5}.maplink{display:inline-block;margin-top:8px;text-decoration:none;color:#25221e;background:#f1ebe2;padding:8px 10px;border-radius:10px;font-size:11px}.daynote{font-size:11px;color:#766f66;margin:8px 0 0;line-height:1.5}.todo li{list-style:none;margin-left:0;padding:9px 10px;border-radius:12px;background:#f7f3ec;margin-bottom:7px}.status{font-size:11px;color:#9b7452;margin-left:6px}
+.note{font-size:12px;color:#766f66;line-height:1.6}footer{font-size:11px;color:#8c847a;text-align:center;padding:16px}
+
+.navbtn{display:inline-block;margin-left:6px;padding:5px 9px;border-radius:999px;background:#222;color:#fff!important;text-decoration:none;font-size:12px;font-weight:700;vertical-align:middle}.navbtn:hover{opacity:.85}.place{display:inline-flex;align-items:center;flex-wrap:wrap;gap:3px}
+.routebox{margin-top:10px;padding:10px 12px;background:#f7f7f7;border-radius:12px;font-size:13px;line-height:1.7}.gmapbtn{display:inline-block;margin-left:6px;padding:4px 8px;border-radius:9px;background:#111;color:#fff;text-decoration:none;font-size:12px}.gmapbtn:hover{opacity:.85}
+.daymap{margin:14px 0 2px;border:1px solid #eee6dc;border-radius:16px;padding:10px;background:#fbfaf7}.daymap-head{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:7px}.daymap-head b{font-size:12px}.daymap-head span{font-size:10px;color:#8c847a}.daymap svg{width:100%;height:190px;display:block;border-radius:12px;background:linear-gradient(180deg,#f4efe7,#eee7dc)}.daymap .route-line{fill:none;stroke:#8a745e;stroke-width:4;stroke-linecap:round;stroke-linejoin:round}.daymap .route-node{fill:#25221e;stroke:#fff;stroke-width:3}.daymap .route-num{font-size:10px;font-weight:800;fill:#fff;text-anchor:middle;dominant-baseline:middle}.daymap .route-label{font-size:10px;fill:#3d3832;text-anchor:middle}.daymap .route-city{font-size:11px;font-weight:800;fill:#25221e}.daymap .route-arrow{fill:#8a745e}.daymap .maplink{margin-top:7px}.daymap-note{font-size:10px;color:#8c847a;margin:6px 0 0;line-height:1.45}
+
+.daymap{margin:16px 0 2px;border:1px solid #e8e0d5;border-radius:22px;padding:0;background:#fff;overflow:hidden;box-shadow:0 2px 8px #00000006}.daymap-visual{padding:14px 14px 0;background:#f5f0e8}.daymap svg{width:100%;height:235px;display:block;border-radius:18px;background:#f1ece4}.daymap .route-line{fill:none;stroke:#8a745e;stroke-width:5;stroke-linecap:round;stroke-linejoin:round}.daymap .route-node{fill:#25221e;stroke:#f1ece4;stroke-width:4}.daymap .route-label{font-size:15px;fill:#25221e;text-anchor:middle;font-weight:500}.daymap .route-label.small{font-size:12px}.daymap-info{padding:0 14px 14px}.route-chips{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0 10px}.route-chip{padding:8px 12px;border:1px solid #e3dbcf;border-radius:999px;background:#fff;color:#3c3832;font-size:13px;white-space:nowrap}.daymap-actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:6px}.daymap .maplink{display:inline-flex;align-items:center;justify-content:center;margin:0;text-decoration:none;color:#25221e;background:#eee8df;padding:11px 16px;border-radius:13px;font-size:13px;font-weight:600}.daymap .maplink.dark{background:#25221e;color:#fff;border-radius:999px;padding:10px 17px}.daymap-note{font-size:12px;color:#766f66;margin:8px 0 0;line-height:1.55}.route-logic{font-size:13px;color:#766f66;line-height:1.65;margin:0}.route-logic b{color:#4d463e}.route-mini{font-size:11px;color:#9a9186;margin-left:auto}.daymap-caption{font-size:12px;color:#8b8278;margin:0 0 2px;padding:0 2px}
+
+/* v3 — travel OS inspired UI */
+:root{--ink:#17262b;--muted:#7b8582;--line:#dfe5e0;--paper:#f6f7f4;--card:#fff;--soft:#edf1ee;--dark:#10252b;--accent:#58796f}
+html{scroll-behavior:smooth}body{background:var(--paper);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","PingFang SC","Noto Sans CJK SC",sans-serif;letter-spacing:-.01em}
+.wrap{max-width:920px;padding:22px 20px 70px}
+.hero{background:var(--dark);border-radius:30px;padding:26px 26px 22px;margin-bottom:10px;box-shadow:none;position:relative;overflow:hidden}.hero:after{content:"";position:absolute;width:230px;height:230px;border-radius:50%;right:-100px;top:-100px;background:#ffffff09}.kicker{font-size:11px;letter-spacing:.16em;color:#c7d2ce;opacity:1}.hero h1{font-size:clamp(34px,7vw,58px);line-height:.98;letter-spacing:-.045em;margin:14px 0 14px;max-width:680px}.hero .meta{gap:7px}.hero .pill{background:#ffffff0e;border:1px solid #ffffff18;color:#e5ebe8;padding:7px 10px}.hero-divider{height:1px;background:#ffffff16;margin:24px 0 14px}.hero-bottom{display:grid;grid-template-columns:1.3fr .7fr .8fr;gap:14px}.hero-bottom div{display:flex;flex-direction:column;gap:4px}.hero-bottom span{font-size:9px;letter-spacing:.14em;color:#90a19c}.hero-bottom b{font-size:12px;color:#f6f8f7;font-weight:600}
+.nav{top:0;background:#f6f7f4e8;padding:9px 0 12px;gap:5px;border-bottom:1px solid transparent}.nav a{background:transparent;border:0;border-radius:8px;padding:9px 12px;color:#64716d;font-size:12px}.nav a:first-child{background:#17262b;color:#fff}
+section{background:transparent;border-radius:0;padding:30px 2px;margin:0;border-bottom:1px solid var(--line);box-shadow:none}section h2{font-size:28px;letter-spacing:-.035em;margin:2px 0 7px}.section-eyebrow{display:flex;justify-content:space-between;align-items:center;font-size:10px;letter-spacing:.15em;color:#75817e;font-weight:700;margin-bottom:7px}.section-eyebrow span{font-size:9px;letter-spacing:.08em;color:#a2aaa7;font-weight:600}.sub{font-size:12px;color:#8a9490;margin:0 0 18px}
+#flights .countdown{background:var(--dark);border-radius:18px;padding:18px 18px 16px;margin:0 0 12px}.cdtitle{font-size:10px;letter-spacing:.08em;color:#aebbb6}.cdclock{font-size:31px;letter-spacing:-.035em;margin:6px 0 3px}.cdtarget{font-size:11px;color:#aebbb6}.flight{background:#fff;border:1px solid var(--line);border-radius:18px;padding:17px 18px;margin:9px 0;display:grid;grid-template-columns:60px 1fr auto;gap:14px}.flight:first-child{border-top:1px solid var(--line)}.fdate{font-size:10px;letter-spacing:.08em;color:#8a9591}.fmain b{font-size:17px;letter-spacing:.02em}.fmain span{font-size:11px;color:#818c88}.ftime{font-size:15px}.ftime small{color:#a1aaa7}
+#hotel .routebox{background:#fff;border:1px solid var(--line);border-radius:18px;padding:17px 18px;margin:9px 0;font-size:13px;line-height:1.65}.routebox b{font-size:14px}.gmapbtn{background:#eef2ef;color:var(--ink);border:1px solid #dce4df;padding:7px 10px;border-radius:9px;font-size:11px;font-weight:600}.routebox .gmapbtn+.gmapbtn{margin-left:5px}
+.journey-card{background:#fff;border:1px solid var(--line);border-radius:22px;overflow:hidden}.journey-top{display:flex;justify-content:space-between;align-items:flex-end;padding:18px 18px 4px}.journey-top div{display:flex;flex-direction:column;gap:4px}.mini-label{font-size:9px;letter-spacing:.14em;color:#89938f}.journey-top strong{font-size:15px}.journey-total{font-size:11px;color:#8b9692}.journey-map{padding:8px 12px 0;background:#edf1ee}.journey-map svg{height:auto;display:block}.journey-stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line)}.journey-stats div{padding:13px 12px;border-right:1px solid var(--line);display:flex;flex-direction:column;gap:2px}.journey-stats div:last-child{border-right:0}.journey-stats b{font-size:21px;letter-spacing:-.03em}.journey-stats span{font-size:8px;letter-spacing:.12em;color:#8b9692}.route-switch{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:11px}.route-switch a{display:flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px 13px;text-decoration:none;color:var(--ink);font-size:12px}.route-switch span{font-size:9px;color:#8a9591;letter-spacing:.05em}.route-switch b{margin-left:auto}
+#days .sub{max-width:620px}.day{background:#fff;border:1px solid var(--line);border-radius:22px;padding:20px 18px;margin:12px 0;position:relative}.day:first-child{border-top:1px solid var(--line)}.dayhead{display:flex;gap:12px;align-items:baseline;margin-bottom:10px}.dayhead span{font-size:10px;letter-spacing:.12em;color:#7c8884;min-width:50px}.dayhead b{font-size:17px;letter-spacing:-.02em}.day>ul{margin:0;padding-left:24px;border-left:1px solid #cfd8d3}.day>ul li{font-size:13px;line-height:1.5;margin:0 0 12px;padding-left:5px}.daymap{margin:16px 0 0;border:1px solid var(--line);border-radius:17px;background:#f1f3ef;box-shadow:none}.daymap-visual{background:#edf1ee;padding:10px 10px 0}.daymap svg{height:210px;border-radius:13px;background:#e9eee9}.daymap-info{padding:0 12px 12px;background:#fff}.route-chips{margin:11px 0 9px}.route-chip{background:#f1f4f2;border-color:#e2e8e4;padding:7px 10px;font-size:11px}.daymap .maplink.dark{background:var(--dark);font-size:11px;padding:9px 13px}.route-logic{font-size:11px;line-height:1.55}.daynote{font-size:10px}.daymap-caption{font-size:10px}
+#car .routebox,#todo .routebox{background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px 15px;margin:8px 0}.progress-card{background:var(--dark);color:#fff;border-radius:18px;padding:15px 16px;margin:0 0 12px}.progress-card>div:first-child{display:flex;justify-content:space-between;align-items:center}.progress-card span{font-size:9px;letter-spacing:.14em;color:#a9b7b2}.progress-card b{font-size:17px}.progress-card small{display:block;color:#a9b7b2;font-size:10px;line-height:1.5;margin-top:8px}.progress-bar{height:4px;background:#ffffff16;border-radius:99px;margin-top:9px;overflow:hidden}.progress-bar i{display:block;width:60%;height:100%;background:#d8e1dc;border-radius:99px}
+.note{font-size:11px;line-height:1.55;color:#8a9490}footer{font-size:10px;color:#8a9490;padding:28px 0}.status{color:#668076}.navbtn{background:#17262b;padding:5px 8px;font-size:10px}.routebox .note{font-size:11px}
+@media(max-width:640px){.wrap{padding:12px 12px 50px}.hero{border-radius:24px;padding:22px 20px 18px}.hero h1{font-size:38px}.hero-bottom{grid-template-columns:1.2fr .7fr .9fr;gap:8px}.hero-bottom b{font-size:11px}.nav{margin:0 -2px}.nav a{padding:8px 10px}.journey-top{align-items:flex-start;gap:10px}.journey-total{font-size:10px}.route-switch{grid-template-columns:1fr}.journey-stats b{font-size:19px}.flight{grid-template-columns:48px 1fr;gap:10px}.ftime{grid-column:2;font-size:13px}.day{padding:17px 14px;border-radius:18px}.daymap svg{height:185px}.section-eyebrow{margin-top:2px}}
+
+.todo-title-row{display:flex;align-items:center;justify-content:space-between;gap:12px}.todo-add-jump,.todo-add button{border:0;background:var(--dark);color:#fff;border-radius:999px;padding:9px 14px;font-size:11px;cursor:pointer}.todo-add{display:flex;gap:8px;margin:0 0 12px}.todo-add input{flex:1;min-width:0;border:1px solid var(--line);background:#fff;border-radius:12px;padding:11px 12px;font:inherit;font-size:12px;color:var(--ink);outline:none}.todo-add input:focus{border-color:#9aa8a3;box-shadow:0 0 0 3px #203b3b0d}.todo-add button{border-radius:12px;padding:0 16px;white-space:nowrap}.todo-list{padding:0;margin:0}.todo .todo-item{display:flex;align-items:flex-start;gap:10px;margin:0 0 7px;padding:10px 11px;border-radius:12px;background:#f7f3ec;list-style:none}.todo-check{appearance:none;width:18px;height:18px;flex:0 0 18px;margin:1px 0 0;border:1.5px solid #9aa39f;border-radius:50%;background:#fff;cursor:pointer;position:relative}.todo-check:checked{background:var(--dark);border-color:var(--dark)}.todo-check:checked:after{content:'✓';position:absolute;left:3px;top:-1px;color:#fff;font-size:12px}.todo-main{min-width:0;flex:1}.todo-text{font-size:12px;line-height:1.5;color:var(--ink);word-break:break-word}.todo-item.done .todo-text{text-decoration:line-through;color:#8b8881}.todo-item.done .todo-status{opacity:.7}.todo-status{display:inline-block;margin-left:7px;font-size:10px;color:#9b7452;background:#fff8ef;padding:2px 6px;border-radius:999px}.todo-delete{border:0;background:transparent;color:#aaa;font-size:18px;line-height:1;cursor:pointer;padding:0 2px}.todo-empty{text-align:center;color:#999;font-size:11px;padding:18px 0 8px}.progress-bar i{transition:width .25s ease}
+</style><style>
+.static-day-map{display:block;width:100%;height:auto;aspect-ratio:1000/460;object-fit:cover;border-radius:13px;background:#edf1ee}
+.daymap-visual{padding:10px 10px 0;background:#edf1ee}
+.daymap{overflow:hidden}
+@media(max-width:640px){.static-day-map{aspect-ratio:1000/460}}
+</style><style>
+#days .day > ul { margin-bottom: 4px; }
+#days .day { padding-bottom: 18px; }
+</style></head><body><main class="wrap">
+<header class="hero"><div class="kicker">THAILAND · 2026</div><h1>2026清迈-芭提雅-曼谷</h1><div class="meta"><span class="pill">2026.09.24 — 10.05</span><span class="pill">清迈 → 曼谷 → 芭提雅 → 曼谷</span></div>
+<div class="hero-divider"></div>
+<div class="hero-bottom"><div><span>NEXT FLIGHT</span><b id="heroNextFlight">MU541 · 09/24 08:50</b></div><div><span>PEOPLE</span><b>4 → 5</b></div><div><span>BASE</span><b>CNX → BKK</b></div></div>
+</header>
+<nav class="nav"><a href="#flights">航班</a><a href="#map">路线</a><a href="#days">行程</a><a href="#hotel">住宿</a><a href="#car">自驾</a><a href="#todo">Todo</a></nav>
+<section id="flights">
+<div class="section-eyebrow">BOARDING <span>4 FLIGHTS</span></div>
+<h2>航班行程</h2>
+<div class="sub">把每一段航班做成一张「登机牌 + 小路线图」</div>
+<div aria-label="航班卡片，可横向滑动" class="flight-scroller">
+<article class="flight-card">
+<div class="flight-top">
+<div><div class="flight-kicker">FLIGHT 01 / 04</div><div class="flight-airline">中国东方航空 · MU541</div></div>
+<div class="flight-date">9月24日</div>
+</div>
+<div class="flight-route">
+<div class="airport"><div class="airport-code">PVG</div><div class="airport-city">上海浦东</div></div>
+<div class="route-middle"><div class="route-line-mini"></div><span class="route-dot"></span><span class="route-arrow">→</span></div>
+<div class="airport right"><div class="airport-code">BKK</div><div class="airport-city">曼谷</div></div>
+</div>
+<div class="flight-times">
+<div class="flight-time">08:50<small>起飞</small></div><div class="flight-duration">直飞</div><div class="flight-time right">12:30<small>抵达</small></div>
+</div>
+<div class="flight-bottom">
+<div><div class="flight-count-label" id="flightCountdownTitle">距离起飞还剩</div><div class="flight-count" id="flightCountdown">--天 --:--:--</div></div>
+<div><div class="flight-no">MU541</div><div class="flight-note" id="flightCountdownTarget">加载中…</div></div>
+</div>
+</article>
+<article class="flight-card">
+<div class="flight-top"><div><div class="flight-kicker">FLIGHT 02 / 04</div><div class="flight-airline">Thai Vietjet Air · VZ122</div></div><div class="flight-date">9月24日</div></div>
+<div class="flight-route"><div class="airport"><div class="airport-code">BKK</div><div class="airport-city">曼谷</div></div><div class="route-middle"><div class="route-line-mini"></div><span class="route-dot"></span><span class="route-arrow">→</span></div><div class="airport right"><div class="airport-code">CNX</div><div class="airport-city">清迈</div></div></div>
+<div class="flight-times"><div class="flight-time">17:35<small>起飞</small></div><div class="flight-duration">1h 25m</div><div class="flight-time right">19:00<small>抵达</small></div></div>
+<div class="flight-bottom"><div><div class="flight-count-label">接着飞</div><div class="flight-count" style="font-size:18px">BKK → CNX</div></div><div><div class="flight-no">VZ122</div><div class="flight-note">清迈入住</div></div></div>
+</article>
+<article class="flight-card">
+<div class="flight-top"><div><div class="flight-kicker">FLIGHT 03 / 04</div><div class="flight-airline">Thai Vietjet Air · VZ123</div></div><div class="flight-date">9月29日</div></div>
+<div class="flight-route"><div class="airport"><div class="airport-code">CNX</div><div class="airport-city">清迈</div></div><div class="route-middle"><div class="route-line-mini"></div><span class="route-dot"></span><span class="route-arrow">→</span></div><div class="airport right"><div class="airport-code">BKK</div><div class="airport-city">曼谷</div></div></div>
+<div class="flight-times"><div class="flight-time">19:35<small>起飞</small></div><div class="flight-duration">1h 20m</div><div class="flight-time right">20:55<small>抵达</small></div></div>
+<div class="flight-bottom"><div><div class="flight-count-label">抵达后</div><div class="flight-count" style="font-size:18px">→ 曼谷</div></div><div><div class="flight-no">VZ123</div><div class="flight-note">入住 Langsuan</div></div></div>
+</article>
+<article class="flight-card">
+<div class="flight-top"><div><div class="flight-kicker">FLIGHT 04 / 04</div><div class="flight-airline">中国东方航空 · MU7426</div></div><div class="flight-date">10月5日</div></div>
+<div class="flight-route"><div class="airport"><div class="airport-code">BKK</div><div class="airport-city">曼谷</div></div><div class="route-middle"><div class="route-line-mini"></div><span class="route-dot"></span><span class="route-arrow">→</span></div><div class="airport right"><div class="airport-code">PVG</div><div class="airport-city">上海浦东</div></div></div>
+<div class="flight-times"><div class="flight-time">03:15<small>起飞</small></div><div class="flight-duration">直飞</div><div class="flight-time right">08:50<small>抵达</small></div></div>
+<div class="flight-bottom"><div><div class="flight-count-label">旅程结束</div><div class="flight-count" style="font-size:18px">BKK → PVG</div></div><div><div class="flight-no">MU7426</div><div class="flight-note">回到上海</div></div></div>
+</article>
+</div>
+<div aria-hidden="true" class="flight-dots"><span class="flight-dot active"></span><span class="flight-dot"></span><span class="flight-dot"></span><span class="flight-dot"></span></div>
+<div class="flight-helper">← <b>左右滑动</b> 看 4 段航班；第一张会显示实时倒计时</div>
+</section>
+<section id="hotel"><div class="section-eyebrow">STAYS<span>TRIP 2026</span></div><h2>住宿</h2><div class="sub">已确认 3 段住宿：清迈 → 曼谷酒店 → 芭提雅 Airbnb → 曼谷 Airbnb</div>
+<div class="routebox"><b>9/29–10/2 · 曼谷朗顺路 Luxx XL 酒店</b><br/><span class="note">Luxx XL Langsuan Hotel Bangkok · 3晚 · 已确认</span><br/>📍 82/8 Langsuan Rd., Lumphini, Pathum Wan, Bangkok 10330, Thailand<br/><span class="note">位置靠近仑披尼公园；10/1 从这里出发安排公园路线很顺。</span><br/><a class="gmapbtn" href="https://www.google.com/maps/dir/?api=1&amp;destination=Luxx+XL+Langsuan+Hotel+Bangkok%2C+82%2F8+Langsuan+Road%2C+Bangkok%2C+Thailand&amp;travelmode=driving&amp;dir_action=navigate" rel="noopener" target="_blank">📍 导航到酒店</a></div>
+<div class="routebox"><b>10/2–10/3 · 芭提雅 Airbnb</b><br/><span class="note">靠近海滩的舒適5房燒烤旅居 · Pattaya, Chon Buri</span><br/>👥 最多 10 人 · 5 间卧室 · 5 张床 · 6 间浴室<br/>⭐ 4.91 / 5（11 条评价） · 泳池 · 烧烤区 · 免费停车 · Wi‑Fi · 洗衣机 · 空调<br/><span class="note">📍 已补充 Airbnb 对应的 Google Maps 精确定位；网页不显示完整街道文字地址，直接点地图按钮即可导航到该点。</span><br/><a class="gmapbtn" href="https://www.airbnb.com.hk/rooms/1695490239158761702?source_impression_id=p3_1789353140_P3h9bmVUonVX7lfW" rel="noopener" target="_blank">🏠 打开 Airbnb</a><a class="gmapbtn" href="https://www.google.com/maps/dir/?api=1&amp;destination=12.88319%2C100.8908804&amp;travelmode=driving&amp;dir_action=navigate" rel="noopener" target="_blank">📍 导航到住宿</a></div>
+<div class="routebox"><b>10/3–10/5 · 曼谷 Airbnb（Silom / Bang Rak）</b><br/><span class="note">是隆（Silom）3房复式，可供6人共享</span><br/>👥 最多 6 人 · 3 间卧室 · 4 张床 · 2 间浴室<br/>⭐ 4.88 / 5（8 条评价） · 自助入住 · 免费停车 · 空调 · 洗衣机 · 电视<br/><span class="note">2025年12月新装修；位于 Bang Rak，是隆区，页面标注邻近素拉胜。我们 5 人入住，容量够用。<br/><span class="note">📍 已补充用户提供的 Google Maps 精确定位。</span></span><br/><a class="gmapbtn" href="https://www.airbnb.com.hk/rooms/1579766018463885464?source_impression_id=p3_1789353140_P3h9bmVUonVX7lfW" rel="noopener" target="_blank">🏠 打开 Airbnb</a><a class="gmapbtn" href="https://www.google.com/maps/dir/?api=1&amp;destination=13.7230908%2C100.5243785&amp;travelmode=driving&amp;dir_action=navigate" rel="noopener" target="_blank">📍 导航到曼谷 Airbnb</a></div><div class="routebox"><b>9/24–9/29 · 清迈 Airbnb 精确定位</b><br/><span class="note">Lucky Charm House CNX · 用户提供的 Google Maps 定位已确认</span><br/><a class="gmapbtn" href="https://www.google.com/maps/dir/?api=1&amp;destination=18.7724654%2C98.9840399&amp;travelmode=driving&amp;dir_action=navigate" rel="noopener" target="_blank">📍 导航到清迈 Airbnb</a></div></section>
+<section id="map">
+<div class="section-eyebrow">THE WHOLE JOURNEY <span>12 DAYS</span></div>
+<h2>本次旅程</h2>
+<div class="journey-card">
+<div class="journey-top">
+<div><span class="mini-label">ROUTE</span><strong>Shanghai → Thailand</strong></div>
+<div class="journey-total">09.24 — 10.05</div>
+</div>
+<div class="journey-map">
+<svg aria-label="上海、曼谷、清迈、芭提雅旅行路线示意图" role="img" viewbox="0 0 760 330">
+<defs><lineargradient id="seaG" x1="0" x2="1"><stop offset="0" stop-color="#eef3ef"></stop><stop offset="1" stop-color="#e6eee9"></stop></lineargradient></defs>
+<rect fill="url(#seaG)" height="330" rx="24" width="760" x="0" y="0"></rect>
+<path d="M108 70 C210 58, 270 92, 330 140 S455 192, 575 226 S650 268, 690 285" fill="none" stroke="#b7c8bd" stroke-dasharray="4 8" stroke-width="2"></path>
+<path d="M575 226 C535 198, 495 176, 462 152 C424 126, 385 110, 345 95" fill="none" stroke="#17262b" stroke-linecap="round" stroke-width="7"></path>
+<path d="M575 226 C602 241, 630 259, 665 278" fill="none" stroke="#17262b" stroke-linecap="round" stroke-width="7"></path>
+<path d="M575 226 C520 222, 474 230, 430 246" fill="none" stroke="#17262b" stroke-linecap="round" stroke-width="7"></path>
+<path d="M345 95 C286 78, 221 68, 145 65" fill="none" stroke="#17262b" stroke-linecap="round" stroke-width="7"></path>
+<g fill="#fff" stroke="#17262b" stroke-width="5">
+<circle cx="145" cy="65" r="9"></circle><circle cx="345" cy="95" r="9"></circle><circle cx="575" cy="226" r="9"></circle><circle cx="665" cy="278" r="9"></circle><circle cx="430" cy="246" r="9"></circle>
+</g>
+<g fill="#17262b" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+<text font-size="18" font-weight="700" text-anchor="middle" x="145" y="42">上海 · PVG</text>
+<text font-size="18" font-weight="700" text-anchor="middle" x="345" y="72">曼谷 · BKK</text>
+<text font-size="18" font-weight="700" text-anchor="middle" x="575" y="203">清迈 · CNX</text>
+<text font-size="18" font-weight="700" text-anchor="middle" x="665" y="305">芭提雅</text>
+<text font-size="18" font-weight="700" text-anchor="middle" x="430" y="274">曼谷 · BKK</text>
+</g>
+<g fill="#748078" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif">
+<text font-size="13" text-anchor="middle" x="145" y="92">09/24</text><text font-size="13" text-anchor="middle" x="575" y="252">09/24–09/29</text><text font-size="13" text-anchor="middle" x="665" y="324">10/02–10/03</text><text font-size="13" text-anchor="middle" x="430" y="298">10/03–10/05</text>
+</g>
+</svg>
+</div>
+<div class="journey-stats">
+<div><b>12</b><span>DAYS</span></div><div><b>11</b><span>NIGHTS</span></div><div><b>4</b><span>FLIGHTS</span></div><div><b>4</b><span>STAYS</span></div>
+</div>
+</div>
+
+<p class="note">路线图是旅行总览示意；当天道路、拥堵与临时封路以 Google Maps 为准。</p>
+</section>
+<section id="days"><div class="section-eyebrow">ITINERARY<span>TRIP 2026</span></div><h2>每日行程</h2><div class="sub">把原资料里的点位重新排成“少折返”的两天路线；9/26 保留 16:00 Magokoro 已预约，9/27 主打宁曼＋<span class="place">清迈大学<a class="navbtn" href="https://www.google.com/maps/dir/?api=1&amp;destination=Chiang%20Mai%20University%2C%20Thailand&amp;travelmode=driving" rel="noopener" target="_blank">📍导航</a></span>＋夜生活。</div>
+<article class="day"><div class="dayhead"><span>09/24</span><b>曼谷 → 清迈</b></div><ul><li>08:50 MU541 上海浦东 → 曼谷</li><li>12:30 抵达曼谷，过海关 / 电话卡</li><li>王权免税店 / 美食 / 奥特莱斯</li><li>15:30 前往托运柜台办理飞清迈行李托运</li><li>17:35 VZ122 曼谷 → 清迈</li><li>19:00 抵达清迈，前往 Lucky Charm House CNX</li></ul></article>
+<article class="day"><div class="dayhead"><span>09/25</span><b>清迈 · 瀑布 &amp; 大象</b></div><ul><li><span class="place">粘粘瀑布 / Buatong Waterfall<a class="navbtn" href="https://www.google.com/maps/dir/?api=1&amp;destination=19.0694446%2C99.079073&amp;travelmode=driving&amp;dir_action=navigate" rel="noopener" target="_blank">📍导航</a></span></li><li><span class="place">Elely Cafe 大象 Cafe<a class="navbtn" href="https://www.google.com/maps/dir/?api=1&amp;destination=19.0688143%2C98.9410448&amp;travelmode=driving&amp;dir_action=navigate" rel="noopener" target="_blank">📍导航</a></span></li><li><span class="place">Elephant POOPOOPAPER Park 大象💩造纸<a class="navbtn" href="https://www.google.com/maps/dir/?api=1&amp;destination=18.9254422%2C98.9316088&amp;travelmode=driving&amp;dir_action=navigate" rel="noopener" target="_blank">📍导航</a></span></li><li><span class="place">湄林老虎王国 / Tiger Kingdom<a class="navbtn" href="https://www.google.com/maps/dir/?api=1&amp;destination=18.9246445%2C98.9320317&amp;travelmode=driving&amp;dir_action=navigate" rel="noopener" target="_blank">📍导航</a></span>（待定）</li><li>包车 + 泰籍女导游：已确认 · 1500 THB / 8h；超时 200 THB/h · 已微信支付 100 THB，余 1400 THB</li></ul></article>
+<article class="day"><div class="dayhead"><span>09/26</span><b>古城慢逛 → <span class="place">塔佩门<a class="navbtn" href="https://www.google.com/maps/dir/?api=1&amp;destination=Tha%20Phae%20Gate%2C%20Chiang%20Mai%2C%20Thailand&amp;travelmode=driving" rel="noopener" target="_blank">📍导航</a></span> → Magokoro → 夜市</b></div><ul><li><b>08:30</b> 塔佩门集合，拍照后进入古城</li><li><b>09:00–11:30</b> 古城步行：<span class="place">清曼寺<a class="navbtn" href="https://www.google.com/maps/dir/?api=1&amp;destination=Wat%20Chiang%20Man%2C%20Chiang%20Mai%2C%20Thailand&amp;travelmode=driving" rel="noopener" target="_blank">📍导航</a></span> → <span class="place">契迪龙寺<a class="navbtn" href="https://www.google.com/maps/dir/?api=1&amp;destination=Wat%20Chedi%20Luang%20Worawihan%2C%20Chiang%20Mai%2C%20Thailand&amp;travelmode=driving" rel="noopener" target="_blank">📍导航</a></span> → <span class="place">三王纪念碑一带<a class="navbtn" href="https://www.google.com/maps/dir/?api=1&amp;destination=Three%20Kings%20Monument%2C%20Chiang%20Mai%2C%20Thailand&amp;travelmode=driving" rel="noopener" target="_blank">📍导航</a></span>；上午尽量不安排开车，古城核心点位集中</li><li><b>11:30–13:00</b> 古城午餐 + 咖啡</li><li><b>13:00–15:00</b> 回住处休息 / 自由逛古城；把“艺术村 / 打铁”暂留为可选项，不强行塞进主路线</li><li><b>16:00</b> <span class="place">Magokoro Teahouse 抹茶馆<a class="navbtn" href="https://www.google.com/maps/dir/?api=1&amp;destination=18.7812993%2C99.0012413&amp;travelmode=driving&amp;dir_action=navigate" rel="noopener" target="_blank">📍导航</a></span> · 4人已预约，桌位保留至 16:15</li><li><b>17:15–18:15</b> 瓦洛洛集市（Warorot Market）吃小吃、买伴手礼</li><li><b>18:30 之后</b> <span class="place">清迈夜市 / Night Bazaar<a class="navbtn" href="https://www.google.com/maps/dir/?api=1&amp;destination=Chiang%20Mai%20Night%20Bazaar%2C%20Thailand&amp;travelmode=driving" rel="noopener" target="_blank">📍导航</a></span>，自由吃饭、逛街</li><li>Lor驾校 <a class="navbtn" href="https://www.google.com/maps/dir/?api=1&amp;destination=18.7609718%2C99.0222199&amp;travelmode=driving&amp;dir_action=navigate" rel="noopener" target="_blank">📍导航</a>：当天打卡 2 次</li></ul>
+</article>
+<article class="day"><div class="dayhead"><span>09/27</span><b>清迈大学 → 宁曼 → 艺术氛围 → 泰拳 / 夜生活</b></div><ul><li><b>09:00</b> 出发去清迈大学，校园周边慢逛</li><li><b>10:30–12:00</b> <span class="place">宁曼路 / Nimmanhaemin<a class="navbtn" href="https://www.google.com/maps/dir/?api=1&amp;destination=Nimmanhaemin%20Road%2C%20Chiang%20Mai%2C%20Thailand&amp;travelmode=driving" rel="noopener" target="_blank">📍导航</a></span> 逛街、咖啡</li><li><b>12:00–13:30</b> 宁曼午餐</li><li><b>13:30–15:30</b> <span class="place">One Nimman<a class="navbtn" href="https://www.google.com/maps/dir/?api=1&amp;destination=One%20Nimman%2C%20Chiang%20Mai%2C%20Thailand&amp;travelmode=driving" rel="noopener" target="_blank">📍导航</a></span> + <span class="place">宁曼小巷<a class="navbtn" href="https://www.google.com/maps/dir/?api=1&amp;destination=Nimmanhaemin%20Road%2C%20Chiang%20Mai%2C%20Thailand&amp;travelmode=driving" rel="noopener" target="_blank">📍导航</a></span>；把原资料里的“艺术村 / 打铁”作为机动项 <a class="navbtn" href="https://www.google.com/maps/dir/?api=1&amp;destination=18.7761182%2C98.9490073&amp;travelmode=driving&amp;dir_action=navigate" rel="noopener" target="_blank">📍艺术村导航</a> <a class="navbtn" href="https://www.google.com/maps/dir/?api=1&amp;destination=18.7793744%2C98.9835967&amp;travelmode=driving&amp;dir_action=navigate" rel="noopener" target="_blank">📍打铁导航</a>，不影响主线</li><li><b>16:00–17:30</b> 回酒店休息 / 自由活动</li><li><b>18:00–19:30</b> 泰拳（具体场馆待你确认，网页先不虚构场馆）</li><li><b>20:00 之后</b> <span class="place">清迈夜市 / Night Bazaar<a class="navbtn" href="https://www.google.com/maps/dir/?api=1&amp;destination=Chiang%20Mai%20Night%20Bazaar%2C%20Thailand&amp;travelmode=driving" rel="noopener" target="_blank">📍导航</a></span> 晚餐与逛街</li><li>如果 9/27 当天临时更想逛老城，可把下午机动项换成塔佩门；不建议把 9/26 的古城核心再完整重复一次</li><li>Lor驾校 <a class="navbtn" href="https://www.google.com/maps/dir/?api=1&amp;destination=18.7609718%2C99.0222199&amp;travelmode=driving&amp;dir_action=navigate" rel="noopener" target="_blank">📍导航</a>：当天打卡 2 次</li></ul>
+</article>
+<article class="day"><div class="dayhead"><span>09/28</span><b>清迈 · 泰餐 → 驾校 → 夜间动物园</b></div><ul>
+<li><b>09:00–14:00</b> Rainy’s Garden Thai Cooking Class（厨房地址已确定，尚未预约） <a class="gmapbtn" href="https://www.google.com/maps/dir/?api=1&amp;destination=18.933464%2C98.943461&amp;travelmode=driving&amp;dir_action=navigate" rel="noopener" target="_blank">📍 导航到厨房</a></li>
+<li><b>14:00–16:30</b> Lor 驾校 <a class="navbtn" href="https://www.google.com/maps/dir/?api=1&amp;destination=18.7609718%2C99.0222199&amp;travelmode=driving&amp;dir_action=navigate" rel="noopener" target="_blank">📍导航</a> 办理/领取驾照；如果泰餐提前结束，直接前往</li>
+<li><b>17:00 左右</b> 与其他人汇合，前往清迈夜间动物园 <a class="gmapbtn" href="https://www.google.com/maps/dir/?api=1&amp;destination=18.7423503%2C98.9173241&amp;travelmode=driving&amp;dir_action=navigate" target="_blank">📍 导航</a></li>
+<li><b>晚上</b> 夜间动物园；建议把驾照办理作为当天唯一机动环节，避免压缩晚上的游玩时间</li>
+</ul></article>
+<article class="day"><div class="dayhead"><span>09/29</span><b>清迈东线 · 红绳庙 → 巧克力农场 → 机场</b></div><ul>
+<li><b>08:00</b> 清迈出发，自驾前往 Mae On 东线</li>
+<li><b>09:00–10:00</b> <b>Mon Kuwera, Maharat Thao Wessuwan Park, Chanthamongkhon Sathan</b>（红绳庙） <a class="gmapbtn" href="https://www.google.com/maps/dir/?api=1&amp;destination=Mon+Kuwera%2C+Maharat+Thao+Wessuwan+Park%2C+Chanthamongkhon+Sathan" target="_blank">📍 导航</a></li>
+<li><b>10:15–12:30</b> <b>The Chocolate Bar @ Skugga Farm</b>（巧克力农场） <a class="gmapbtn" href="https://www.google.com/maps/dir/?api=1&amp;destination=The+Chocolate+Bar+%40+Skugga+Farm" target="_blank">📍 导航</a></li>
+<li><b>12:30–13:30</b> 午餐 / 咖啡 / 巧克力农场慢逛</li>
+<li><b>13:30–15:30</b> 返回清迈方向；建议不要再塞新的远郊景点</li>
+<li><b>16:00 左右</b> 前往清迈机场 <a class="gmapbtn" href="https://www.google.com/maps/dir/?api=1&amp;destination=Chiang+Mai+International+Airport" target="_blank">📍 导航</a></li>
+<li><b>19:35</b> VZ123 清迈 → 曼谷；按原计划至少提前约 3 小时到机场</li>
+<li><b>20:55</b> 抵达曼谷 → 前往 <span class="place">Luxx XL Langsuan Hotel<a class="navbtn" href="https://www.google.com/maps/dir/?api=1&amp;destination=Luxx+XL+Langsuan+Hotel+Bangkok%2C+82%2F8+Langsuan+Road%2C+Bangkok%2C+Thailand&amp;travelmode=driving&amp;dir_action=navigate" rel="noopener" target="_blank">📍导航</a></span> 办理入住</li>
+<li>9/29–10/2 共住 3 晚；10/2 退房后前往芭提雅</li>
+</ul><div class="routebox"><b>当天路线</b><br/>清迈 → Mon Kuwera → The Chocolate Bar @ Skugga Farm → 清迈机场<br/><a class="gmapbtn" href="https://www.google.com/maps/dir/?api=1&amp;origin=Chiang+Mai%2C+Thailand&amp;destination=Chiang+Mai+International+Airport&amp;waypoints=Mon+Kuwera%2C+Maharat+Thao+Wessuwan+Park%2C+Chanthamongkhon+Sathan%7CThe+Chocolate+Bar+%40+Skugga+Farm" rel="noopener" target="_blank">🗺️ 打开整天路线</a></div></article>
+<article class="day"><div class="dayhead"><span>09/30</span><b>曼谷 · 泰国朋友带玩｜老曼谷 → Song Wat → Chinatown</b></div><ul>
+<li><b>09:00</b> <span class="place">大皇宫 / 玉佛寺<a class="navbtn" href="https://www.google.com/maps/dir/?api=1&amp;destination=The+Grand+Palace%2C+Bangkok%2C+Thailand&amp;travelmode=driving&amp;dir_action=navigate" rel="noopener" target="_blank">📍导航</a></span></li>
+<li><b>10:30–11:30</b> <span class="place">卧佛寺 Wat Pho<a class="navbtn" href="https://www.google.com/maps/dir/?api=1&amp;destination=Wat+Pho%2C+Bangkok%2C+Thailand&amp;travelmode=driving&amp;dir_action=navigate" rel="noopener" target="_blank">📍导航</a></span></li>
+<li><b>11:45–13:00</b> <span class="place">郑王庙 Wat Arun<a class="navbtn" href="https://www.google.com/maps/dir/?api=1&amp;destination=Wat+Arun%2C+Bangkok%2C+Thailand&amp;travelmode=driving&amp;dir_action=navigate" rel="noopener" target="_blank">📍导航</a></span>；建议坐渡船过河</li>
+<li><b>13:00–14:30</b> 午餐：让泰国朋友带你们吃本地餐厅</li>
+<li><b>15:00–16:30</b> <span class="place">Song Wat 一条街<a class="navbtn" href="https://www.google.com/maps/dir/?api=1&amp;destination=Song+Wat+Road%2C+Bangkok%2C+Thailand&amp;travelmode=driving&amp;dir_action=navigate" rel="noopener" target="_blank">📍导航</a></span> → <span class="place">Talat Noi / ตลาดน้อย<a class="navbtn" href="https://www.google.com/maps/dir/?api=1&amp;destination=Talat+Noi%2C+Bangkok%2C+Thailand&amp;travelmode=driving&amp;dir_action=navigate" rel="noopener" target="_blank">📍导航</a></span></li>
+<li><b>16:30–18:00</b> <span class="place">唐人街 Yaowarat<a class="navbtn" href="https://www.google.com/maps/dir/?api=1&amp;destination=Yaowarat+Road%2C+Bangkok%2C+Thailand&amp;travelmode=driving&amp;dir_action=navigate" rel="noopener" target="_blank">📍导航</a></span>，边走边吃</li>
+<li><b>18:00 以后</b> 晚餐 / 海鲜 / 妈妈面 / 炸鸡 / 夜宵：<span class="place">松松海鲜<a class="navbtn" href="https://www.google.com/maps/search/?api=1&amp;query=松松海鲜+Bangkok" rel="noopener" target="_blank">📍导航</a></span>、<span class="place">妈妈面<a class="navbtn" href="https://www.google.com/maps/search/?api=1&amp;query=妈妈面+Bangkok" rel="noopener" target="_blank">📍导航</a></span> 等让朋友现场选择</li>
+<li><b>晚上可选</b> <span class="place">湄南河 / 河滨夜景<a class="navbtn" href="https://www.google.com/maps/search/?api=1&amp;query=Chao+Phraya+River+Bangkok" rel="noopener" target="_blank">📍导航</a></span>；如果想去摩天轮，可选 <span class="place">Asiatique The Riverfront<a class="navbtn" href="https://www.google.com/maps/dir/?api=1&amp;destination=Asiatique+The+Riverfront%2C+Bangkok%2C+Thailand&amp;travelmode=driving&amp;dir_action=navigate" rel="noopener" target="_blank">📍导航</a></span></li>
+<li><b>本日不建议塞入</b> 水上市场、1981 Soul、Lumphini / Benjakitti；留给 10/1 会更舒服</li>
+</ul><div class="routebox"><b>9/30 推荐路线</b><br/>大皇宫 → 卧佛寺 → 郑王庙 → 午餐 → Song Wat → Talat Noi → Chinatown → 晚餐 / 湄南河夜景<br/><a class="gmapbtn" href="https://www.google.com/maps/dir/?api=1&amp;destination=Yaowarat+Road%2C+Bangkok%2C+Thailand&amp;waypoints=The+Grand+Palace%2C+Bangkok%2C+Thailand%7CWat+Pho%2C+Bangkok%2C+Thailand%7CWat+Arun%2C+Bangkok%2C+Thailand%7CSong+Wat+Road%2C+Bangkok%2C+Thailand%7CTalat+Noi%2C+Bangkok%2C+Thailand&amp;travelmode=driving" rel="noopener" target="_blank">🗺️ 打开整天路线</a></div></article>
+<article class="day"><div class="dayhead"><span>10/01</span><b>曼谷 · 4女生自由行｜酒店 → 公园 → ICONSIAM → 夜市</b></div><ul>
+<li><b>10:00</b> 从 <span class="place">Luxx XL Langsuan Hotel<a class="navbtn" href="https://www.google.com/maps/dir/?api=1&amp;destination=Luxx+XL+Langsuan+Hotel+Bangkok%2C+82%2F8+Langsuan+Road%2C+Bangkok%2C+Thailand&amp;travelmode=walking&amp;dir_action=navigate" rel="noopener" target="_blank">📍导航</a></span> 出发，步行/短程前往 <span class="place">Lumphini Park 仑披尼公园<a class="navbtn" href="https://www.google.com/maps/dir/?api=1&amp;destination=Lumphini+Park%2C+Bangkok%2C+Thailand&amp;travelmode=driving&amp;dir_action=navigate" rel="noopener" target="_blank">📍导航</a></span></li>
+<li><b>11:30</b> 如果天气舒服，再去 <span class="place">Benjakitti Forest Park 班嘉奇蒂森林公园<a class="navbtn" href="https://www.google.com/maps/dir/?api=1&amp;destination=Benjakitti+Forest+Park%2C+Bangkok%2C+Thailand&amp;travelmode=driving&amp;dir_action=navigate" rel="noopener" target="_blank">📍导航</a></span>；天气热则跳过</li>
+<li><b>13:00–14:00</b> 午餐 + 咖啡</li>
+<li><b>14:00–16:30</b> <span class="place">ICONSIAM 暹罗天地<a class="navbtn" href="https://www.google.com/maps/dir/?api=1&amp;destination=ICONSIAM%2C+Bangkok%2C+Thailand&amp;travelmode=driving&amp;dir_action=navigate" rel="noopener" target="_blank">📍导航</a></span>：吃饭、购物、逛商场</li>
+<li><b>16:30–18:00</b> 咖啡 / 按摩 / 自由购物，不再塞景点</li>
+<li><b>18:30 以后</b> 夜市：原计划的“朱拉隆功夜市”建议先确认当日是否营业；若去，导航可直接搜 <span class="place">Chulalongkorn Night Market<a class="navbtn" href="https://www.google.com/maps/search/?api=1&amp;query=Chulalongkorn+Night+Market%2C+Bangkok" rel="noopener" target="_blank">📍导航</a></span></li>
+<li><b>20:30+</b> <span class="place">牛奶小子 / 夜宵<a class="navbtn" href="https://www.google.com/maps/search/?api=1&amp;query=牛奶小子+Bangkok" rel="noopener" target="_blank">📍导航</a></span>；具体店址目前未确认，用 Google Maps 搜索按钮更稳妥</li>
+</ul><div class="routebox"><b>10/1 推荐路线</b><br/>Lumphini → Benjakitti（可选）→ ICONSIAM → 咖啡 / 按摩 → 夜市 → 夜宵</div></article>
+<article class="day"><div class="dayhead"><span>10/02</span><b>曼谷 → 芭提雅</b></div><ul><li><b>12:00前</b> 从 <span class="place">Luxx XL Langsuan Hotel<a class="navbtn" href="https://www.google.com/maps/dir/?api=1&amp;destination=Luxx+XL+Langsuan+Hotel+Bangkok%2C+82%2F8+Langsuan+Road%2C+Bangkok%2C+Thailand&amp;travelmode=driving&amp;dir_action=navigate" rel="noopener" target="_blank">📍酒店导航</a></span> 退房</li><li>前往芭提雅</li><li>入住 <span class="place">10/2–10/3 芭提雅 Airbnb</span>（5房别墅，泳池＋烧烤区，最多10人） <a class="navbtn" href="https://www.airbnb.com.hk/rooms/1695490239158761702?source_impression_id=p3_1789353140_P3h9bmVUonVX7lfW" rel="noopener" target="_blank">🏠 Airbnb</a></li><li>城际交通待规划</li></ul></article>
+<article class="day"><div class="dayhead"><span>10/03</span><b>芭提雅 → 曼谷</b></div><ul><li>芭提雅 → 曼谷</li><li>入住 <span class="place">10/3–10/5 曼谷 Airbnb</span>（Silom / Bang Rak，3房复式，最多6人） <a class="navbtn" href="https://www.airbnb.com.hk/rooms/1579766018463885464?source_impression_id=p3_1789353140_P3h9bmVUonVX7lfW" rel="noopener" target="_blank">🏠 Airbnb</a></li><li>城际交通待规划</li></ul></article>
+<article class="day"><div class="dayhead"><span>10/04</span><b>曼谷</b></div><ul><li>曼谷自由安排</li><li>为 10/5 03:15 返程航班做离境准备</li><li>机场交通与出发时间待确认</li></ul></article>
+<article class="day"><div class="dayhead"><span>10/05</span><b>曼谷 → 上海</b></div><ul><li>03:15 MU7426 曼谷 BKK → 上海浦东 PVG</li><li>08:50 抵达上海</li></ul></article></section>
+<section id="car"><div class="section-eyebrow">ON THE ROAD<span>TRIP 2026</span></div><h2>租车</h2><div class="routebox"><b>新增已确认地图点位</b><br/>🎨 艺术村：18.7761182, 98.9490073 <a class="gmapbtn" href="https://www.google.com/maps/dir/?api=1&amp;destination=18.7761182%2C98.9490073&amp;travelmode=driving&amp;dir_action=navigate" rel="noopener" target="_blank">📍导航</a><br/>🍵 预约抹茶馆 Magokoro：18.7812993, 99.0012413 <a class="gmapbtn" href="https://www.google.com/maps/dir/?api=1&amp;destination=18.7812993%2C99.0012413&amp;travelmode=driving&amp;dir_action=navigate" rel="noopener" target="_blank">📍导航</a><br/>🦁 夜间动物园：18.7423503, 98.9173241 <a class="gmapbtn" href="https://www.google.com/maps/dir/?api=1&amp;destination=18.7423503%2C98.9173241&amp;travelmode=driving&amp;dir_action=navigate" rel="noopener" target="_blank">📍导航</a><br/>🚗 Nakhon Lanna Driving School（Lor驾校）：18.7609718, 99.0222199 <a class="gmapbtn" href="https://www.google.com/maps/dir/?api=1&amp;destination=18.7609718%2C99.0222199&amp;travelmode=driving&amp;dir_action=navigate" rel="noopener" target="_blank">📍导航</a><br/>🔨 打铁：18.7793744, 98.9835967 <a class="gmapbtn" href="https://www.google.com/maps/dir/?api=1&amp;destination=18.7793744%2C98.9835967&amp;travelmode=driving&amp;dir_action=navigate" rel="noopener" target="_blank">📍导航</a><br/>🍳 Rainy’s Garden Thai Cooking Class：18.933464, 98.943461 <span class="note">（已定地址，尚未预约）</span> <a class="gmapbtn" href="https://www.google.com/maps/dir/?api=1&amp;destination=18.933464%2C98.943461&amp;travelmode=driving&amp;dir_action=navigate" rel="noopener" target="_blank">📍导航</a><br/>🐘 Elely Cafe：19.0688143, 98.9410448 <a class="gmapbtn" href="https://www.google.com/maps/dir/?api=1&amp;destination=19.0688143%2C98.9410448&amp;travelmode=driving&amp;dir_action=navigate" rel="noopener" target="_blank">📍导航</a><br/>💩 Elephant POOPOOPAPER Park：18.9254422, 98.9316088 <a class="gmapbtn" href="https://www.google.com/maps/dir/?api=1&amp;destination=18.9254422%2C98.9316088&amp;travelmode=driving&amp;dir_action=navigate" rel="noopener" target="_blank">📍导航</a><br/>💦 Buatong Waterfall-Chet Si Fountain National Park：19.0694446, 99.079073 <a class="gmapbtn" href="https://www.google.com/maps/dir/?api=1&amp;destination=19.0694446%2C99.079073&amp;travelmode=driving&amp;dir_action=navigate" rel="noopener" target="_blank">📍导航</a><br/>🐯 湄林老虎王国 / Tiger Kingdom：18.9246445, 98.9320317 <a class="gmapbtn" href="https://www.google.com/maps/dir/?api=1&amp;destination=18.9246445%2C98.9320317&amp;travelmode=driving&amp;dir_action=navigate" rel="noopener" target="_blank">📍导航</a></div><p><b>清迈：当地租车自驾</b></p><p class="note">租车公司、车型、取还车时间、价格、保险及预订状态尚未提供。9/25 原资料同时安排包车+泰籍女导游，需后续确认是否仅当天包车；9/26、9/27 Lor驾校每天打卡 2 次 <a class="navbtn" href="https://www.google.com/maps/dir/?api=1&amp;destination=18.7609718%2C99.0222199&amp;travelmode=driving&amp;dir_action=navigate" rel="noopener" target="_blank">📍导航</a>，9/28 下午拿驾照。</p></section>
+<section class="todo" id="todo"><div class="section-eyebrow">BEFORE WE GO<span>TRIP 2026</span></div><div class="todo-title-row"><h2>To Do</h2><button class="todo-add-jump" type="button" onclick="document.getElementById('todoInput').focus()">＋ 添加</button></div><div class="progress-card"><div><span>TRIP PREP</span><b id="todoProgressText">0 / 0</b></div><div class="progress-bar"><i id="todoProgressBar"></i></div><small>你可以随时添加、勾选完成或删除待办。内容会自动保存在这台设备的浏览器里。</small></div><div class="todo-add"><input id="todoInput" type="text" maxlength="120" placeholder="添加一个待办，例如：确认曼谷机场接送" autocomplete="off"><button id="todoAddBtn" type="button">添加</button></div><ul id="todoList" aria-live="polite"></ul><div class="todo-empty" id="todoEmpty">还没有待办，先添加一条吧。</div></section>
+<footer>THAILAND · 2026  /  PERSONAL TRAVEL OS</footer>
+</main><script>
+(function(){
+  const defaults = [
+    ['海关/入境资料：来回机票、曼谷/清迈住宿信息、每人至少 10000 THB 现金','待准备'],
+    ['电话卡：国内买或曼谷机场买','待购买/确认'],
+    ['9/25 清迈包车 + 泰籍女导游：1500 THB / 8h','已确认；微信已付100 THB，余1400 THB'],
+    ['9/26 16:00 Magokoro Teahouse，4 人','已预约'],
+    ['9/28 Rainy’s Garden Thai Cooking Class 09:00–14:00','地址已确定；尚未预约'],
+    ['清迈租车具体预订信息','待补充'],
+    ['9/29–10/2 曼谷住宿：Luxx XL Langsuan Hotel · 3晚','已确认'],
+    ['10/2–10/3 芭提雅 Airbnb：5房别墅 · 泳池/烧烤','已确认'],
+    ['10/3–10/5 曼谷 Airbnb：Silom / Bang Rak · 3房复式','已确认'],
+    ['10/1 周末市场具体名称','待确认'],
+    ['曼谷 / 芭提雅城际交通','待规划'],
+    ['10/5 03:15 曼谷机场交通','待规划']
+  ];
+  const key='thailand-travel-todos-v1';
+  const list=document.getElementById('todoList'), input=document.getElementById('todoInput'), add=document.getElementById('todoAddBtn'), empty=document.getElementById('todoEmpty');
+  let todos;
+  try{ todos=JSON.parse(localStorage.getItem(key)||'null'); }catch(e){ todos=null; }
+  if(!Array.isArray(todos)){ todos=defaults.map((x,i)=>({id:Date.now()+i,text:x[0],status:x[1],done:false})); save(); }
+  function save(){ try{localStorage.setItem(key,JSON.stringify(todos));}catch(e){} }
+  function render(){
+    list.innerHTML='';
+    todos.forEach((item,index)=>{
+      const li=document.createElement('li'); li.className='todo-item'+(item.done?' done':'');
+      const cb=document.createElement('input'); cb.type='checkbox'; cb.className='todo-check'; cb.checked=!!item.done; cb.setAttribute('aria-label','完成：'+item.text);
+      cb.addEventListener('change',()=>{item.done=cb.checked;save();render();});
+      const main=document.createElement('div'); main.className='todo-main';
+      const text=document.createElement('div'); text.className='todo-text'; text.textContent=item.text;
+      const status=document.createElement('span'); status.className='todo-status'; status.textContent=item.status||'待处理';
+      main.append(text,status);
+      const del=document.createElement('button'); del.className='todo-delete'; del.type='button'; del.textContent='×'; del.title='删除';
+      del.addEventListener('click',()=>{todos.splice(index,1);save();render();});
+      li.append(cb,main,del); list.appendChild(li);
+    });
+    empty.style.display=todos.length?'none':'block';
+    const total=todos.length, done=todos.filter(x=>x.done).length;
+    document.getElementById('todoProgressText').textContent=done+' / '+total;
+    document.getElementById('todoProgressBar').style.width=(total?(done/total*100):0)+'%';
+  }
+  function addTodo(){ const text=input.value.trim(); if(!text)return; todos.push({id:Date.now(),text,status:'待处理',done:false}); input.value=''; save(); render(); input.focus(); }
+  add.addEventListener('click',addTodo); input.addEventListener('keydown',e=>{if(e.key==='Enter')addTodo();}); render();
+})();
+</script>
+<script>
+(function(){
+  const flights = [
+    {no:'MU541', time:'2026-09-24T08:50:00+08:00', route:'上海浦东 PVG → 曼谷 BKK'},
+    {no:'VZ122', time:'2026-09-24T17:35:00+08:00', route:'曼谷 BKK → 清迈 CNX'},
+    {no:'VZ123', time:'2026-09-29T19:35:00+08:00', route:'清迈 CNX → 曼谷 BKK'},
+    {no:'MU7426', time:'2026-10-05T03:15:00+08:00', route:'曼谷 BKK → 上海浦东 PVG'}
+  ].map(f=>({...f, ts:new Date(f.time).getTime()}));
+  const title=document.getElementById('flightCountdownTitle');
+  const clock=document.getElementById('flightCountdown');
+  const target=document.getElementById('flightCountdownTarget');
+  if(!clock||!title||!target) return;
+  function pad(n){return String(n).padStart(2,'0')}
+  function fmtDate(ts){
+    const d=new Date(ts);
+    const mm=String(d.getMonth()+1).padStart(2,'0');
+    const dd=String(d.getDate()).padStart(2,'0');
+    const hh=String(d.getHours()).padStart(2,'0');
+    const mi=String(d.getMinutes()).padStart(2,'0');
+    return `${mm}/${dd} ${hh}:${mi}`;
+  }
+  function tick(){
+    const now=Date.now();
+    const next=flights.find(f=>f.ts>now);
+    if(!next){
+      title.textContent='✈️ 所有航班已完成';
+      clock.textContent='旅程结束';
+      target.textContent='最后一程 MU7426 已于 2026/10/05 03:15 起飞';
+      return;
+    }
+    const diff=next.ts-now;
+    const sec=Math.floor(diff/1000);
+    const d=Math.floor(sec/86400);
+    const h=Math.floor((sec%86400)/3600);
+    const m=Math.floor((sec%3600)/60);
+    const s=sec%60;
+    title.textContent=`✈️ 距离下一班航班 ${next.no} 还有`;
+    clock.textContent=d+'天 '+pad(h)+'时 '+pad(m)+'分 '+pad(s)+'秒';
+    target.textContent=`${next.no} · ${fmtDate(next.ts)} · ${next.route}`;
+  }
+  tick();
+  setInterval(tick,1000);
+})();
+</script></body></html>
