@@ -47,10 +47,14 @@ section{background:transparent;border-radius:0;padding:30px 2px;margin:0;border-
 </style><style>
 #days .day > ul { margin-bottom: 4px; }
 #days .day { padding-bottom: 18px; }
+</style>
+<style>
+.share-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}.share-btn{appearance:none;border:1px solid #ffffff2b;background:#ffffff12;color:#fff;padding:10px 13px;border-radius:12px;font-size:12px;font-weight:700;cursor:pointer;min-height:40px}.share-btn.primary{background:#fff;color:#25221e;border-color:#fff}.share-btn:active{transform:scale(.98)}.share-url{margin-top:9px;font-size:10px;line-height:1.4;opacity:.5;word-break:break-all}.share-toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(12px);background:#25221e;color:#fff;padding:10px 14px;border-radius:999px;font-size:12px;box-shadow:0 8px 24px #0003;opacity:0;pointer-events:none;transition:.22s;z-index:999;white-space:nowrap}.share-toast.show{opacity:1;transform:translateX(-50%) translateY(0)}@media(max-width:430px){.share-row{display:grid;grid-template-columns:1fr 1fr}.share-btn{width:100%}}
 </style></head><body><main class="wrap">
 <header class="hero"><div class="kicker">THAILAND · 2026</div><h1>2026清迈-芭提雅-曼谷</h1><div class="meta"><span class="pill">2026.09.24 — 10.05</span><span class="pill">清迈 → 曼谷 → 芭提雅 → 曼谷</span></div>
 <div class="hero-divider"></div>
 <div class="hero-bottom"><div><span>NEXT FLIGHT</span><b id="heroNextFlight">MU541 · 09/24 08:50</b></div><div><span>PEOPLE</span><b>4 → 5</b></div><div><span>BASE</span><b>CNX → BKK</b></div></div>
+<div class="share-row"><button class="share-btn primary" id="shareTripBtn" type="button">📤 分享行程</button><button class="share-btn" id="copyTripBtn" type="button">🔗 复制链接</button></div><div class="share-url" id="shareUrl"></div>
 </header>
 <nav class="nav"><a href="#flights">航班</a><a href="#map">路线</a><a href="#days">行程</a><a href="#hotel">住宿</a><a href="#car">自驾</a><a href="#todo">Todo</a></nav>
 <section id="flights">
@@ -282,5 +286,17 @@ section{background:transparent;border-radius:0;padding:30px 2px;margin:0;border-
   }
   tick();
   setInterval(tick,1000);
+})();
+</script><script>
+(function(){
+ const shareBtn=document.getElementById('shareTripBtn'),copyBtn=document.getElementById('copyTripBtn'),urlEl=document.getElementById('shareUrl');
+ if(!shareBtn||!copyBtn)return;
+ const title='2026清迈-芭提雅-曼谷 🇹🇭', text='9/24–10/5 · 清迈 → 芭提雅 → 曼谷 · 旅行计划', url=location.href;
+ urlEl.textContent=url;
+ let timer;
+ function toast(msg){let el=document.getElementById('shareToast');if(!el){el=document.createElement('div');el.id='shareToast';el.className='share-toast';document.body.appendChild(el)}el.textContent=msg;el.classList.add('show');clearTimeout(timer);timer=setTimeout(()=>el.classList.remove('show'),1800)}
+ async function copy(){try{if(navigator.clipboard&&window.isSecureContext)await navigator.clipboard.writeText(url);else{const ta=document.createElement('textarea');ta.value=url;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.focus();ta.select();document.execCommand('copy');ta.remove()}toast('已复制旅行计划链接 ✓')}catch(e){toast('复制失败，请长按网址复制')}}
+ shareBtn.addEventListener('click',async()=>{if(navigator.share){try{await navigator.share({title,text,url})}catch(e){if(e&&e.name!=='AbortError')await copy()}}else await copy()});
+ copyBtn.addEventListener('click',copy);
 })();
 </script></body></html>
