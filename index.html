@@ -39,6 +39,13 @@ section{background:transparent;border-radius:0;padding:30px 2px;margin:0;border-
 @media(max-width:640px){.wrap{padding:12px 12px 50px}.hero{border-radius:24px;padding:22px 20px 18px}.hero h1{font-size:38px}.hero-bottom{grid-template-columns:1.2fr .7fr .9fr;gap:8px}.hero-bottom b{font-size:11px}.nav{margin:0 -2px}.nav a{padding:8px 10px}.journey-top{align-items:flex-start;gap:10px}.journey-total{font-size:10px}.route-switch{grid-template-columns:1fr}.journey-stats b{font-size:19px}.flight{grid-template-columns:48px 1fr;gap:10px}.ftime{grid-column:2;font-size:13px}.day{padding:17px 14px;border-radius:18px}.daymap svg{height:185px}.section-eyebrow{margin-top:2px}}
 
 .todo-title-row{display:flex;align-items:center;justify-content:space-between;gap:12px}.todo-add-jump,.todo-add button{border:0;background:var(--dark);color:#fff;border-radius:999px;padding:9px 14px;font-size:11px;cursor:pointer}.todo-add{display:flex;gap:8px;margin:0 0 12px}.todo-add input{flex:1;min-width:0;border:1px solid var(--line);background:#fff;border-radius:12px;padding:11px 12px;font:inherit;font-size:12px;color:var(--ink);outline:none}.todo-add input:focus{border-color:#9aa8a3;box-shadow:0 0 0 3px #203b3b0d}.todo-add button{border-radius:12px;padding:0 16px;white-space:nowrap}.todo-list{padding:0;margin:0}.todo .todo-item{display:flex;align-items:flex-start;gap:10px;margin:0 0 7px;padding:10px 11px;border-radius:12px;background:#f7f3ec;list-style:none}.todo-check{appearance:none;width:18px;height:18px;flex:0 0 18px;margin:1px 0 0;border:1.5px solid #9aa39f;border-radius:50%;background:#fff;cursor:pointer;position:relative}.todo-check:checked{background:var(--dark);border-color:var(--dark)}.todo-check:checked:after{content:'✓';position:absolute;left:3px;top:-1px;color:#fff;font-size:12px}.todo-main{min-width:0;flex:1}.todo-text{font-size:12px;line-height:1.5;color:var(--ink);word-break:break-word}.todo-item.done .todo-text{text-decoration:line-through;color:#8b8881}.todo-item.done .todo-status{opacity:.7}.todo-status{display:inline-block;margin-left:7px;font-size:10px;color:#9b7452;background:#fff8ef;padding:2px 6px;border-radius:999px}.todo-delete{border:0;background:transparent;color:#aaa;font-size:18px;line-height:1;cursor:pointer;padding:0 2px}.todo-empty{text-align:center;color:#999;font-size:11px;padding:18px 0 8px}.progress-bar i{transition:width .25s ease}
+
+.flight-terminal{margin-top:10px;padding-top:9px;border-top:1px solid #ffffff12;display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:10px;color:#a9bbb6}
+.flight-terminal b{display:block;color:#e6eeeb;font-size:10px;margin-top:2px}
+.flight-terminal span:last-child{text-align:right}
+.flight-scroll-progress{height:3px;background:#dfe5e0;border-radius:99px;overflow:hidden;margin:9px 3px 0}
+.flight-scroll-progress i{display:block;width:25%;height:100%;background:#397f89;border-radius:99px;transition:width .2s ease}
+.flight-dot{transition:all .18s ease}
 </style><style>
 .static-day-map{display:block;width:100%;height:auto;aspect-ratio:1000/460;object-fit:cover;border-radius:13px;background:#edf1ee}
 .daymap-visual{padding:10px 10px 0;background:#edf1ee}
@@ -47,14 +54,10 @@ section{background:transparent;border-radius:0;padding:30px 2px;margin:0;border-
 </style><style>
 #days .day > ul { margin-bottom: 4px; }
 #days .day { padding-bottom: 18px; }
-</style>
-<style>
-.share-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}.share-btn{appearance:none;border:1px solid #ffffff2b;background:#ffffff12;color:#fff;padding:10px 13px;border-radius:12px;font-size:12px;font-weight:700;cursor:pointer;min-height:40px}.share-btn.primary{background:#fff;color:#25221e;border-color:#fff}.share-btn:active{transform:scale(.98)}.share-url{margin-top:9px;font-size:10px;line-height:1.4;opacity:.5;word-break:break-all}.share-toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(12px);background:#25221e;color:#fff;padding:10px 14px;border-radius:999px;font-size:12px;box-shadow:0 8px 24px #0003;opacity:0;pointer-events:none;transition:.22s;z-index:999;white-space:nowrap}.share-toast.show{opacity:1;transform:translateX(-50%) translateY(0)}@media(max-width:430px){.share-row{display:grid;grid-template-columns:1fr 1fr}.share-btn{width:100%}}
 </style></head><body><main class="wrap">
 <header class="hero"><div class="kicker">THAILAND · 2026</div><h1>2026清迈-芭提雅-曼谷</h1><div class="meta"><span class="pill">2026.09.24 — 10.05</span><span class="pill">清迈 → 曼谷 → 芭提雅 → 曼谷</span></div>
 <div class="hero-divider"></div>
 <div class="hero-bottom"><div><span>NEXT FLIGHT</span><b id="heroNextFlight">MU541 · 09/24 08:50</b></div><div><span>PEOPLE</span><b>4 → 5</b></div><div><span>BASE</span><b>CNX → BKK</b></div></div>
-<div class="share-row"><button class="share-btn primary" id="shareTripBtn" type="button">📤 分享行程</button><button class="share-btn" id="copyTripBtn" type="button">🔗 复制链接</button></div><div class="share-url" id="shareUrl"></div>
 </header>
 <nav class="nav"><a href="#flights">航班</a><a href="#map">路线</a><a href="#days">行程</a><a href="#hotel">住宿</a><a href="#car">自驾</a><a href="#todo">Todo</a></nav>
 <section id="flights">
@@ -75,6 +78,7 @@ section{background:transparent;border-radius:0;padding:30px 2px;margin:0;border-
 <div class="flight-times">
 <div class="flight-time">08:50<small>起飞</small></div><div class="flight-duration">直飞</div><div class="flight-time right">12:30<small>抵达</small></div>
 </div>
+<div class="flight-terminal"><span>上海浦东 · <b>T1 航站楼</b></span><span>曼谷 BKK · <b>主航站楼</b></span></div>
 <div class="flight-bottom">
 <div><div class="flight-count-label" id="flightCountdownTitle">距离起飞还剩</div><div class="flight-count" id="flightCountdown">--天 --:--:--</div></div>
 <div><div class="flight-no">MU541</div><div class="flight-note" id="flightCountdownTarget">加载中…</div></div>
@@ -84,29 +88,31 @@ section{background:transparent;border-radius:0;padding:30px 2px;margin:0;border-
 <div class="flight-top"><div><div class="flight-kicker">FLIGHT 02 / 04</div><div class="flight-airline">Thai Vietjet Air · VZ122</div></div><div class="flight-date">9月24日</div></div>
 <div class="flight-route"><div class="airport"><div class="airport-code">BKK</div><div class="airport-city">曼谷</div></div><div class="route-middle"><div class="route-line-mini"></div><span class="route-dot"></span><span class="route-arrow">→</span></div><div class="airport right"><div class="airport-code">CNX</div><div class="airport-city">清迈</div></div></div>
 <div class="flight-times"><div class="flight-time">17:35<small>起飞</small></div><div class="flight-duration">1h 25m</div><div class="flight-time right">19:00<small>抵达</small></div></div>
+<div class="flight-terminal"><span>曼谷 BKK · <b>主航站楼</b></span><span>清迈 CNX · <b>国内航站楼</b></span></div>
 <div class="flight-bottom"><div><div class="flight-count-label">接着飞</div><div class="flight-count" style="font-size:18px">BKK → CNX</div></div><div><div class="flight-no">VZ122</div><div class="flight-note">清迈入住</div></div></div>
 </article>
 <article class="flight-card">
 <div class="flight-top"><div><div class="flight-kicker">FLIGHT 03 / 04</div><div class="flight-airline">Thai Vietjet Air · VZ123</div></div><div class="flight-date">9月29日</div></div>
 <div class="flight-route"><div class="airport"><div class="airport-code">CNX</div><div class="airport-city">清迈</div></div><div class="route-middle"><div class="route-line-mini"></div><span class="route-dot"></span><span class="route-arrow">→</span></div><div class="airport right"><div class="airport-code">BKK</div><div class="airport-city">曼谷</div></div></div>
 <div class="flight-times"><div class="flight-time">19:35<small>起飞</small></div><div class="flight-duration">1h 20m</div><div class="flight-time right">20:55<small>抵达</small></div></div>
+<div class="flight-terminal"><span>清迈 CNX · <b>国内航站楼</b></span><span>曼谷 BKK · <b>主航站楼</b></span></div>
 <div class="flight-bottom"><div><div class="flight-count-label">抵达后</div><div class="flight-count" style="font-size:18px">→ 曼谷</div></div><div><div class="flight-no">VZ123</div><div class="flight-note">入住 Langsuan</div></div></div>
 </article>
 <article class="flight-card">
 <div class="flight-top"><div><div class="flight-kicker">FLIGHT 04 / 04</div><div class="flight-airline">中国东方航空 · MU7426</div></div><div class="flight-date">10月5日</div></div>
 <div class="flight-route"><div class="airport"><div class="airport-code">BKK</div><div class="airport-city">曼谷</div></div><div class="route-middle"><div class="route-line-mini"></div><span class="route-dot"></span><span class="route-arrow">→</span></div><div class="airport right"><div class="airport-code">PVG</div><div class="airport-city">上海浦东</div></div></div>
 <div class="flight-times"><div class="flight-time">03:15<small>起飞</small></div><div class="flight-duration">直飞</div><div class="flight-time right">08:50<small>抵达</small></div></div>
+<div class="flight-terminal"><span>曼谷 BKK · <b>主航站楼</b></span><span>上海浦东 · <b>T1 航站楼</b></span></div>
 <div class="flight-bottom"><div><div class="flight-count-label">旅程结束</div><div class="flight-count" style="font-size:18px">BKK → PVG</div></div><div><div class="flight-no">MU7426</div><div class="flight-note">回到上海</div></div></div>
 </article>
 </div>
-<div aria-hidden="true" class="flight-dots"><span class="flight-dot active"></span><span class="flight-dot"></span><span class="flight-dot"></span><span class="flight-dot"></span></div>
+<div aria-hidden="true" class="flight-dots"><span class="flight-dot active"></span><span class="flight-dot"></span><span class="flight-dot"></span><span class="flight-dot"></span></div><div class="flight-scroll-progress" aria-hidden="true"><i id="flightScrollProgress"></i></div>
 <div class="flight-helper">← <b>左右滑动</b> 看 4 段航班；第一张会显示实时倒计时</div>
 </section>
 <section id="hotel"><div class="section-eyebrow">STAYS<span>TRIP 2026</span></div><h2>住宿</h2><div class="sub">已确认 4 段住宿：清迈 → 曼谷酒店 → 芭提雅 Airbnb → 曼谷酒店；10/4 退房后寄存行李，晚上直接前往机场</div>
-<div class="routebox"><b>9/24–9/29 · 清迈 Airbnb 精确定位</b><br/><span class="note">Lucky Charm House CNX · 用户提供的 Google Maps 定位已确认</span><br/><a class="gmapbtn" href="https://www.google.com/maps/dir/?api=1&amp;destination=18.7724654%2C98.9840399&amp;travelmode=driving&amp;dir_action=navigate" rel="noopener" target="_blank">📍 导航到清迈 Airbnb</a></div>
 <div class="routebox"><b>9/29–10/2 · 曼谷朗顺路 Luxx XL 酒店</b><br/><span class="note">Luxx XL Langsuan Hotel Bangkok · 3晚 · 已确认</span><br/>📍 82/8 Langsuan Rd., Lumphini, Pathum Wan, Bangkok 10330, Thailand<br/><span class="note">位置靠近仑披尼公园；10/1 从这里出发安排公园路线很顺。</span><br/><a class="gmapbtn" href="https://www.google.com/maps/dir/?api=1&amp;destination=Luxx+XL+Langsuan+Hotel+Bangkok%2C+82%2F8+Langsuan+Road%2C+Bangkok%2C+Thailand&amp;travelmode=driving&amp;dir_action=navigate" rel="noopener" target="_blank">📍 导航到酒店</a></div>
 <div class="routebox"><b>10/2–10/3 · 芭提雅 Airbnb</b><br/><span class="note">靠近海滩的舒適5房燒烤旅居 · Pattaya, Chon Buri</span><br/>👥 最多 10 人 · 5 间卧室 · 5 张床 · 6 间浴室<br/>⭐ 4.91 / 5（11 条评价） · 泳池 · 烧烤区 · 免费停车 · Wi‑Fi · 洗衣机 · 空调<br/><span class="note">📍 已补充 Airbnb 对应的 Google Maps 精确定位；网页不显示完整街道文字地址，直接点地图按钮即可导航到该点。</span><br/><a class="gmapbtn" href="https://www.airbnb.com.hk/rooms/1695490239158761702?source_impression_id=p3_1789353140_P3h9bmVUonVX7lfW" rel="noopener" target="_blank">🏠 打开 Airbnb</a><a class="gmapbtn" href="https://www.google.com/maps/dir/?api=1&amp;destination=12.88319%2C100.8908804&amp;travelmode=driving&amp;dir_action=navigate" rel="noopener" target="_blank">📍 导航到住宿</a></div>
-<div class="routebox"><b>10/3–10/4 · Luxx XL Langsuan Hotel</b><br/><span class="note">Luxx XL Langsuan Hotel Bangkok · 1晚 · 已确认</span><br/>📍 82/8 Langsuan Rd., Lumphini, Pathum Wan, Bangkok 10330, Thailand<br/><span class="note">10/4 下午退房；退房后在酒店寄存行李，晚上直接前往机场，不再安排 10/4–10/5 住宿。</span><br/><a class="gmapbtn" href="https://www.google.com/maps/dir/?api=1&amp;destination=Luxx+XL+Langsuan+Hotel+Bangkok%2C+82%2F8+Langsuan+Road%2C+Bangkok%2C+Thailand&amp;travelmode=driving&amp;dir_action=navigate" rel="noopener" target="_blank">📍 导航到酒店</a></div></section>
+<div class="routebox"><b>10/3–10/4 · Luxx XL Langsuan Hotel</b><br/><span class="note">Luxx XL Langsuan Hotel Bangkok · 1晚 · 已确认</span><br/>📍 82/8 Langsuan Rd., Lumphini, Pathum Wan, Bangkok 10330, Thailand<br/><span class="note">10/4 下午退房；退房后在酒店寄存行李，晚上直接前往机场，不再安排 10/4–10/5 住宿。</span><br/><a class="gmapbtn" href="https://www.google.com/maps/dir/?api=1&amp;destination=Luxx+XL+Langsuan+Hotel+Bangkok%2C+82%2F8+Langsuan+Road%2C+Bangkok%2C+Thailand&amp;travelmode=driving&amp;dir_action=navigate" rel="noopener" target="_blank">📍 导航到酒店</a></div><div class="routebox"><b>9/24–9/29 · 清迈 Airbnb 精确定位</b><br/><span class="note">Lucky Charm House CNX · 用户提供的 Google Maps 定位已确认</span><br/><a class="gmapbtn" href="https://www.google.com/maps/dir/?api=1&amp;destination=18.7724654%2C98.9840399&amp;travelmode=driving&amp;dir_action=navigate" rel="noopener" target="_blank">📍 导航到清迈 Airbnb</a></div></section>
 <section id="map">
 <div class="section-eyebrow">THE WHOLE JOURNEY <span>12 DAYS</span></div>
 <h2>本次旅程</h2>
@@ -244,6 +250,37 @@ section{background:transparent;border-radius:0;padding:30px 2px;margin:0;border-
   add.addEventListener('click',addTodo); input.addEventListener('keydown',e=>{if(e.key==='Enter')addTodo();}); render();
 })();
 </script>
+
+<script>
+(function(){
+  const scroller=document.querySelector('.flight-scroller');
+  const cards=[...document.querySelectorAll('.flight-scroller .flight-card')];
+  const dots=[...document.querySelectorAll('.flight-dots .flight-dot')];
+  const bar=document.getElementById('flightScrollProgress');
+  if(!scroller||!cards.length||!dots.length)return;
+
+  let raf=0;
+  function update(){
+    raf=0;
+    const center=scroller.scrollLeft + scroller.clientWidth/2;
+    let active=0, best=Infinity;
+    cards.forEach((card,i)=>{
+      const c=card.offsetLeft + card.offsetWidth/2;
+      const d=Math.abs(c-center);
+      if(d<best){best=d;active=i;}
+    });
+    dots.forEach((dot,i)=>dot.classList.toggle('active',i===active));
+    if(bar) bar.style.width=((active+1)/cards.length*100)+'%';
+  }
+  scroller.addEventListener('scroll',()=>{
+    if(!raf) raf=requestAnimationFrame(update);
+  },{passive:true});
+  scroller.addEventListener('touchend',update,{passive:true});
+  window.addEventListener('resize',update);
+  dots.forEach((dot,i)=>dot.addEventListener('click',()=>cards[i].scrollIntoView({behavior:'smooth',block:'nearest',inline:'start'})));
+  update();
+})();
+</script>
 <script>
 (function(){
   const flights = [
@@ -286,17 +323,5 @@ section{background:transparent;border-radius:0;padding:30px 2px;margin:0;border-
   }
   tick();
   setInterval(tick,1000);
-})();
-</script><script>
-(function(){
- const shareBtn=document.getElementById('shareTripBtn'),copyBtn=document.getElementById('copyTripBtn'),urlEl=document.getElementById('shareUrl');
- if(!shareBtn||!copyBtn)return;
- const title='2026清迈-芭提雅-曼谷 🇹🇭', text='9/24–10/5 · 清迈 → 芭提雅 → 曼谷 · 旅行计划', url=location.href;
- urlEl.textContent=url;
- let timer;
- function toast(msg){let el=document.getElementById('shareToast');if(!el){el=document.createElement('div');el.id='shareToast';el.className='share-toast';document.body.appendChild(el)}el.textContent=msg;el.classList.add('show');clearTimeout(timer);timer=setTimeout(()=>el.classList.remove('show'),1800)}
- async function copy(){try{if(navigator.clipboard&&window.isSecureContext)await navigator.clipboard.writeText(url);else{const ta=document.createElement('textarea');ta.value=url;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.focus();ta.select();document.execCommand('copy');ta.remove()}toast('已复制旅行计划链接 ✓')}catch(e){toast('复制失败，请长按网址复制')}}
- shareBtn.addEventListener('click',async()=>{if(navigator.share){try{await navigator.share({title,text,url})}catch(e){if(e&&e.name!=='AbortError')await copy()}}else await copy()});
- copyBtn.addEventListener('click',copy);
 })();
 </script></body></html>
