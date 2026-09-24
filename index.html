@@ -47,12 +47,41 @@ section{background:transparent;border-radius:0;padding:30px 2px;margin:0;border-
 </style><style>
 #days .day > ul { margin-bottom: 4px; }
 #days .day { padding-bottom: 18px; }
+</style><style>
+/* TRIP EXPENSES */
+#expenses .expense-summary{display:grid;grid-template-columns:1.35fr .8fr .8fr;gap:9px;margin:12px 0}
+#expenses .expense-stat{background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px 12px}
+#expenses .expense-stat.main{background:var(--dark);color:#fff}
+#expenses .expense-label{display:block;font-size:9px;letter-spacing:.1em;color:#89938f;margin-bottom:5px}
+#expenses .expense-stat.main .expense-label{color:#aebbb6}
+#expenses .expense-value{font-size:20px;font-weight:800;letter-spacing:-.03em}
+#expenses .expense-rmb{font-size:10px;color:#8b9692;margin-top:3px}
+#expenses .expense-stat.main .expense-rmb{color:#aebbb6}
+.expense-form,.expense-card,.settle-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:15px;margin:10px 0}
+.expense-form-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.expense-field label{display:block;font-size:10px;color:#7d8884;margin:0 0 5px}
+.expense-field input,.expense-field select{width:100%;border:1px solid var(--line);border-radius:11px;background:#f8faf8;padding:10px;font:inherit;font-size:12px;color:var(--ink);outline:none}
+.expense-field input:focus,.expense-field select:focus{border-color:#9aa8a3;box-shadow:0 0 0 3px #203b3b0d}
+.expense-people{display:flex;gap:6px;flex-wrap:wrap}
+.expense-person{border:1px solid var(--line);background:#f6f8f6;color:var(--ink);border-radius:999px;padding:8px 11px;font-size:11px;cursor:pointer}
+.expense-person.active{background:var(--dark);border-color:var(--dark);color:#fff}
+.expense-save{width:100%;margin-top:10px;border:0;background:var(--dark);color:#fff;border-radius:12px;padding:11px;font-weight:700;font-size:12px;cursor:pointer}
+.expense-toolbar{display:flex;justify-content:space-between;align-items:center;gap:8px;margin:16px 0 8px}
+.expense-toolbar b{font-size:13px}
+.expense-clear{border:0;background:transparent;color:#9a6258;font-size:10px;cursor:pointer}
+.expense-card{display:flex;justify-content:space-between;gap:12px;align-items:center}
+.expense-card-main{min-width:0}.expense-card-title{font-size:13px;font-weight:700}.expense-card-meta{font-size:10px;color:#8b9692;margin-top:4px;line-height:1.5}
+.expense-card-amount{text-align:right;white-space:nowrap}.expense-card-amount b{font-size:15px}.expense-card-amount small{display:block;color:#8b9692;font-size:9px;margin-top:2px}
+.settle-list{margin:8px 0 0}.settle-row{display:flex;justify-content:space-between;gap:10px;padding:9px 0;border-top:1px solid var(--line);font-size:11px}.settle-row:first-child{border-top:0}.settle-row b{font-size:12px}.settle-row .receive{color:#52786d}.settle-row .pay{color:#9a6258}
+.expense-empty{text-align:center;color:#929b97;font-size:11px;padding:18px 0}
+.expense-hint{font-size:10px;color:#8a9490;line-height:1.5;margin-top:9px}
+@media(max-width:640px){#expenses .expense-summary{grid-template-columns:1fr 1fr}.expense-stat.main{grid-column:1/-1}.expense-form-grid{grid-template-columns:1fr}}
 </style></head><body><main class="wrap">
 <header class="hero"><div class="kicker">THAILAND · 2026</div><h1>2026清迈-芭提雅-曼谷</h1><div class="meta"><span class="pill">2026.09.24 — 10.05</span><span class="pill">清迈 → 曼谷 → 芭提雅 → 曼谷</span></div>
 <div class="hero-divider"></div>
 <div class="hero-bottom"><div><span>NEXT FLIGHT</span><b id="heroNextFlight">MU541 · 09/24 08:50</b></div><div><span>PEOPLE</span><b>4 → 5</b></div><div><span>BASE</span><b>CNX → BKK</b></div></div>
 </header>
-<nav class="nav"><a href="#flights">航班</a><a href="#map">路线</a><a href="#days">行程</a><a href="#hotel">住宿</a><a href="#car">自驾</a><a href="#todo">Todo</a></nav>
+<nav class="nav"><a href="#flights">航班</a><a href="#map">路线</a><a href="#days">行程</a><a href="#hotel">住宿</a><a href="#car">自驾</a><a href="#todo">Todo</a><a href="#expenses">记账</a></nav>
 <section id="flights">
 <div class="section-eyebrow">BOARDING <span>4 FLIGHTS</span></div>
 <h2>航班行程</h2>
@@ -192,7 +221,35 @@ section{background:transparent;border-radius:0;padding:30px 2px;margin:0;border-
 <article class="day"><div class="dayhead"><span>10/04</span><b>曼谷 → 机场</b></div><ul><li>曼谷自由安排</li><li><b>下午</b> Luxx XL Langsuan Hotel 退房</li><li>退房后将行李寄存在酒店，继续自由活动</li><li><b>晚上</b> 从酒店取回行李后直接前往曼谷机场</li><li>10/5 03:15 MU7426 曼谷 BKK → 上海浦东 PVG</li></ul></article>
 <article class="day"><div class="dayhead"><span>10/05</span><b>曼谷 → 上海</b></div><ul><li>03:15 MU7426 曼谷 BKK → 上海浦东 PVG</li><li>08:50 抵达上海</li></ul></article></section>
 <section id="car"><div class="section-eyebrow">ON THE ROAD<span>TRIP 2026</span></div><h2>租车</h2><div class="routebox"><b>新增已确认地图点位</b><br/>🎨 艺术村：18.7761182, 98.9490073 <a class="gmapbtn" href="https://www.google.com/maps/dir/?api=1&amp;destination=18.7761182%2C98.9490073&amp;travelmode=driving&amp;dir_action=navigate" rel="noopener" target="_blank">📍导航</a><br/>🍵 预约抹茶馆 Magokoro：18.7812993, 99.0012413 <a class="gmapbtn" href="https://www.google.com/maps/dir/?api=1&amp;destination=18.7812993%2C99.0012413&amp;travelmode=driving&amp;dir_action=navigate" rel="noopener" target="_blank">📍导航</a><br/>🦁 夜间动物园：18.7423503, 98.9173241 <a class="gmapbtn" href="https://www.google.com/maps/dir/?api=1&amp;destination=18.7423503%2C98.9173241&amp;travelmode=driving&amp;dir_action=navigate" rel="noopener" target="_blank">📍导航</a><br/>🚗 Nakhon Lanna Driving School（Lor驾校）：18.7609718, 99.0222199 <a class="gmapbtn" href="https://www.google.com/maps/dir/?api=1&amp;destination=18.7609718%2C99.0222199&amp;travelmode=driving&amp;dir_action=navigate" rel="noopener" target="_blank">📍导航</a><br/>🔨 打铁：18.7793744, 98.9835967 <a class="gmapbtn" href="https://www.google.com/maps/dir/?api=1&amp;destination=18.7793744%2C98.9835967&amp;travelmode=driving&amp;dir_action=navigate" rel="noopener" target="_blank">📍导航</a><br/>🍳 Mama Noi Thai Cooking School：<span class="note">9/28 09:00，已预约，商家接送</span> <a class="gmapbtn" href="https://www.google.com/maps/search/?api=1&amp;query=Mama+Noi+Thai+Cooking+School+Chiang+Mai" rel="noopener" target="_blank">📍导航</a><br/>🐘 Elely Cafe：19.0688143, 98.9410448 <a class="gmapbtn" href="https://www.google.com/maps/dir/?api=1&amp;destination=19.0688143%2C98.9410448&amp;travelmode=driving&amp;dir_action=navigate" rel="noopener" target="_blank">📍导航</a><br/>💩 Elephant POOPOOPAPER Park：18.9254422, 98.9316088 <a class="gmapbtn" href="https://www.google.com/maps/dir/?api=1&amp;destination=18.9254422%2C98.9316088&amp;travelmode=driving&amp;dir_action=navigate" rel="noopener" target="_blank">📍导航</a><br/>💦 Buatong Waterfall-Chet Si Fountain National Park：19.0694446, 99.079073 <a class="gmapbtn" href="https://www.google.com/maps/dir/?api=1&amp;destination=19.0694446%2C99.079073&amp;travelmode=driving&amp;dir_action=navigate" rel="noopener" target="_blank">📍导航</a><br/>🐯 湄林老虎王国 / Tiger Kingdom：18.9246445, 98.9320317 <a class="gmapbtn" href="https://www.google.com/maps/dir/?api=1&amp;destination=18.9246445%2C98.9320317&amp;travelmode=driving&amp;dir_action=navigate" rel="noopener" target="_blank">📍导航</a></div><p><b>清迈：当地租车自驾</b></p><p class="note">租车公司、车型、取还车时间、价格、保险及预订状态尚未提供。9/25 原资料同时安排包车+泰籍女导游，需后续确认是否仅当天包车；9/26、9/27 Lor驾校每天打卡 2 次 <a class="navbtn" href="https://www.google.com/maps/dir/?api=1&amp;destination=18.7609718%2C99.0222199&amp;travelmode=driving&amp;dir_action=navigate" rel="noopener" target="_blank">📍导航</a>，9/28 下午拿驾照。</p></section>
-<section class="todo" id="todo"><div class="section-eyebrow">BEFORE WE GO<span>TRIP 2026</span></div><div class="todo-title-row"><h2>To Do</h2><button class="todo-add-jump" type="button" onclick="document.getElementById('todoInput').focus()">＋ 添加</button></div><div class="progress-card"><div><span>TRIP PREP</span><b id="todoProgressText">0 / 0</b></div><div class="progress-bar"><i id="todoProgressBar"></i></div><small>你可以随时添加、勾选完成或删除待办。内容会自动保存在这台设备的浏览器里。</small></div><div class="todo-add"><input id="todoInput" type="text" maxlength="120" placeholder="添加一个待办，例如：确认曼谷机场接送" autocomplete="off"><button id="todoAddBtn" type="button">添加</button></div><ul id="todoList" aria-live="polite"></ul><div class="todo-empty" id="todoEmpty">还没有待办，先添加一条吧。</div></section>
+<section id="expenses">
+<div class="section-eyebrow">TRIP EXPENSES<span>4 PEOPLE · THB</span></div>
+<h2>旅行记账</h2>
+<div class="sub">固定计算 4 人：我 · Ga · 00 · 阳阳。默认按参与人数平摊，付款人单独记录。</div>
+<div class="expense-summary">
+<div class="expense-stat main"><span class="expense-label">TOTAL SPENT</span><div class="expense-value" id="expenseTotal">฿0</div><div class="expense-rmb" id="expenseTotalRmb">≈ ¥0</div></div>
+<div class="expense-stat"><span class="expense-label">PER PERSON</span><div class="expense-value" id="expenseAvg">฿0</div><div class="expense-rmb">4人平均</div></div>
+<div class="expense-stat"><span class="expense-label">RECORDS</span><div class="expense-value" id="expenseCount">0</div><div class="expense-rmb">笔消费</div></div>
+</div>
+<div class="expense-form">
+<div class="expense-form-grid">
+<div class="expense-field"><label>金额 · THB</label><input id="expenseAmount" type="number" min="0" step="1" placeholder="例如 1500"></div>
+<div class="expense-field"><label>类别</label><select id="expenseCategory"><option>🍜 餐饮</option><option>🏨 住宿</option><option>🚗 交通</option><option>🎟️ 活动</option><option>🛍️ 购物</option><option>☕ 咖啡</option><option>📦 其他</option></select></div>
+<div class="expense-field"><label>谁付款？</label><select id="expensePayer"><option>我</option><option>Ga</option><option>00</option><option>阳阳</option></select></div>
+<div class="expense-field"><label>日期</label><input id="expenseDate" type="date" value="2026-09-24"></div>
+</div>
+<div class="expense-field" style="margin-top:10px"><label>谁参与？默认4人</label><div class="expense-people" id="expensePeople"></div></div>
+<div class="expense-field" style="margin-top:10px"><label>备注</label><input id="expenseNote" type="text" maxlength="80" placeholder="例如 Mama Noi Cooking School"></div>
+<button class="expense-save" id="expenseSave" type="button">＋ 保存这笔消费</button>
+<div class="expense-hint">原始金额始终保存为泰铢。人民币仅作参考，默认按 1 THB ≈ ¥0.20 计算。</div>
+</div>
+<div class="expense-toolbar"><b>消费记录</b><button class="expense-clear" id="expenseClear" type="button">清空全部记录</button></div>
+<div id="expenseList"></div>
+<div class="expense-empty" id="expenseEmpty">还没有消费记录，先记第一笔吧。</div>
+<div class="settle-card">
+<div class="expense-toolbar" style="margin:0"><b>💸 4人结算</b><span class="expense-hint" style="margin:0">按实际参与人计算</span></div>
+<div id="settleList" class="settle-list"></div>
+</div>
+</section><section class="todo" id="todo"><div class="section-eyebrow">BEFORE WE GO<span>TRIP 2026</span></div><div class="todo-title-row"><h2>To Do</h2><button class="todo-add-jump" type="button" onclick="document.getElementById('todoInput').focus()">＋ 添加</button></div><div class="progress-card"><div><span>TRIP PREP</span><b id="todoProgressText">0 / 0</b></div><div class="progress-bar"><i id="todoProgressBar"></i></div><small>你可以随时添加、勾选完成或删除待办。内容会自动保存在这台设备的浏览器里。</small></div><div class="todo-add"><input id="todoInput" type="text" maxlength="120" placeholder="添加一个待办，例如：确认曼谷机场接送" autocomplete="off"><button id="todoAddBtn" type="button">添加</button></div><ul id="todoList" aria-live="polite"></ul><div class="todo-empty" id="todoEmpty">还没有待办，先添加一条吧。</div></section>
 <footer>THAILAND · 2026  /  PERSONAL TRAVEL OS</footer>
 </main><script>
 (function(){
@@ -339,4 +396,47 @@ section{background:transparent;border-radius:0;padding:30px 2px;margin:0;border-
   requestUpdate();
 })();
 </script>
-</body></html>
+<script>
+(function(){
+ const people=['我','Ga','00','阳阳'], key='thailand-travel-expenses-v1', rate=.20;
+ const $=id=>document.getElementById(id);
+ const peopleEl=$('expensePeople'), list=$('expenseList'), empty=$('expenseEmpty');
+ let items=[]; try{items=JSON.parse(localStorage.getItem(key)||'[]')}catch(e){items=[]}
+ people.forEach(p=>{const b=document.createElement('button');b.type='button';b.className='expense-person active';b.textContent=p;b.dataset.person=p;b.onclick=()=>{b.classList.toggle('active')};peopleEl.appendChild(b)});
+ function save(){try{localStorage.setItem(key,JSON.stringify(items))}catch(e){}}
+ function money(n){return '฿'+Math.round(n).toLocaleString('en-US')}
+ function render(){
+   const total=items.reduce((s,x)=>s+x.amount,0), avg=total/4;
+   $('expenseTotal').textContent=money(total); $('expenseTotalRmb').textContent='≈ ¥'+Math.round(total*rate).toLocaleString('en-US');
+   $('expenseAvg').textContent=money(avg); $('expenseCount').textContent=items.length;
+   list.innerHTML='';
+   items.slice().sort((a,b)=>(b.date||'').localeCompare(a.date||'')).forEach((x,i)=>{
+     const d=document.createElement('div');d.className='expense-card';
+     const joined=x.people.join('、');
+     d.innerHTML='<div class="expense-card-main"><div class="expense-card-title">'+x.category+' · '+(x.note||'未备注')+'</div><div class="expense-card-meta">'+x.date+' · '+x.payer+'支付 · '+joined+' 分摊</div></div><div class="expense-card-amount"><b>'+money(x.amount)+'</b><small>每人 '+money(x.amount/x.people.length)+'</small></div>';
+     d.onclick=()=>{if(confirm('删除这笔 '+money(x.amount)+' 消费？')){items.splice(items.indexOf(x),1);save();render()}};
+     list.appendChild(d);
+   });
+   empty.style.display=items.length?'none':'block';
+   const paid=Object.fromEntries(people.map(p=>[p,0])), owed=Object.fromEntries(people.map(p=>[p,0]));
+   items.forEach(x=>{paid[x.payer]+=x.amount; const share=x.amount/x.people.length; x.people.forEach(p=>owed[p]+=share)});
+   const balances=people.map(p=>({p,b:paid[p]-owed[p]}));
+   const sl=$('settleList');sl.innerHTML='';
+   balances.forEach(x=>{const r=document.createElement('div');r.className='settle-row';const b=Math.round(x.b);r.innerHTML='<span>'+x.p+' · 已付 '+money(paid[x.p])+' · 应付 '+money(owed[x.p])+'</span><b class="'+(b>=0?'receive':'pay')+'">'+(b>=0?'应收 ':'还需付 ')+money(Math.abs(b))+'</b>';sl.appendChild(r)});
+   let creditors=balances.filter(x=>x.b>0.5).map(x=>({...x})), debtors=balances.filter(x=>x.b<-0.5).map(x=>({...x}));
+   creditors.sort((a,b)=>b.b-a.b); debtors.sort((a,b)=>a.b-b.b);
+   const transfers=[];
+   let i=0,j=0;
+   while(i<debtors.length&&j<creditors.length){const amt=Math.min(-debtors[i].b,creditors[j].b);transfers.push(debtors[i].p+' → '+creditors[j].p+'  '+money(amt));debtors[i].b+=amt;creditors[j].b-=amt;if(Math.abs(debtors[i].b)<.5)i++;if(Math.abs(creditors[j].b)<.5)j++}
+   if(transfers.length){const h=document.createElement('div');h.style.cssText='margin-top:10px;padding-top:10px;border-top:1px solid var(--line);font-size:11px;font-weight:700';h.textContent='建议结算：'+transfers.join('  ·  ');sl.appendChild(h)}else{const h=document.createElement('div');h.className='expense-hint';h.textContent='目前已结清';sl.appendChild(h)}
+ }
+ $('expenseSave').onclick=()=>{
+   const amount=Number($('expenseAmount').value), selected=[...peopleEl.querySelectorAll('.expense-person.active')].map(b=>b.dataset.person);
+   if(!amount||amount<=0)return alert('请输入有效金额'); if(!selected.length)return alert('至少选择1位参与人');
+   items.push({id:Date.now(),amount,payer:$('expensePayer').value,category:$('expenseCategory').value,date:$('expenseDate').value||new Date().toISOString().slice(0,10),note:$('expenseNote').value.trim(),people:selected});
+   save(); $('expenseAmount').value='';$('expenseNote').value='';render();
+ };
+ $('expenseClear').onclick=()=>{if(items.length&&confirm('确定清空全部记账记录？')){items=[];save();render()}};
+ render();
+})();
+</script></body></html>
